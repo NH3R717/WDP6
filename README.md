@@ -22,7 +22,7 @@ After completing the above steps, update this read me with your own text. Delete
 
 # Project
 
-### First Last / Student ID: 000#######
+### First Last / Student ID: 0004654267
 
 Hello my name is Tommy. This project is the sixths portfolio class project that is part Full Sail University's Online Web Design and Development degree program.
 
@@ -38,7 +38,7 @@ The purpose of this repository is to practice development using version control 
 
 Here's what I worked on this past week...
 
-**Week 1**: Brief summary of work. 2-3 sentences.
+**Week 1**: Data models and Test Driven development are covered this week. A efficient/normalized data model for a https://ship-it.netlify.app/ is created as well as functional tests are write to check HTTP data request validity.
 
 **Week 2**:
 
