@@ -18,7 +18,7 @@ The purpose of this repository is to practice development using version control 
 
 Here's what I worked on this past week...
 
-**Week 1**: Data models and Test Driven Development are covered this week. A efficient/normalized data model for a https://ship-it.netlify.app/ is created as well as and Express API server and functional tests are included to check HTTP data request validity.
+**Week 1**: Data models and Test Driven Development are covered this week. A efficient/normalized data model for https://ship-it.netlify.app/ (a front in ready for data and api integration) is created as well as and Express API server and functional tests are included to check HTTP data request validity.
 
 **Week 2**:
 
