@@ -1,0 +1,6 @@
+{
+  "env": {
+    "DEBUG": "api:*"
+  },
+  "notes (do not git commit)": {}
+}
