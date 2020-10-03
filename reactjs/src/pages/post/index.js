@@ -109,23 +109,20 @@ class Post extends React.Component {
 
 Post.propTypes = {
   addComment: PropTypes.func,
-  comments: PropTypes.arrayOf(
-    PropTypes.shape({
-      content: PropTypes.string,
-    })
-  ),
   fetchPost: PropTypes.func,
   loggedIn: PropTypes.bool,
   post: PropTypes.shape({
-    commentCount: PropTypes.number,
-    content: PropTypes.string,
-    createdAt: PropTypes.string,
     id: PropTypes.string,
-    tags: PropTypes.arrayOf(PropTypes.object),
     title: PropTypes.string,
+    content: PropTypes.string,
+    commentCount: PropTypes.number,
+
     user: PropTypes.shape({
       username: PropTypes.string,
     }),
+
+    tags: PropTypes.arrayOf(PropTypes.object),
+
     votes: PropTypes.arrayOf(
       PropTypes.shape({
         userId: PropTypes.string,
@@ -133,6 +130,12 @@ Post.propTypes = {
       })
     ),
   }),
+  comments: PropTypes.arrayOf(
+    PropTypes.shape({
+      content: PropTypes.string,
+    })
+  ),
+  createdAt: PropTypes.string,
 };
 
 Post.defaultProps = {
