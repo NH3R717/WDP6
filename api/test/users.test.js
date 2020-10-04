@@ -3,10 +3,9 @@ const app = require("../app");
 
 describe("user endpoints", () => {
 
-    // watch is not a feature in the ShipIt project
-    it("update a tag to a user's watched", async () => {
+    it("update a tag to a user's watched [addToWatched(tagId)]", async () => {
         const res = await request(app)
-            .update('/api/users')
+            .post('/api/users')
             .send({
                 userId: "26d5689d-b15b-4a94-a699-44b3e0fdc401",
                 tags: [{
@@ -19,7 +18,36 @@ describe("user endpoints", () => {
         expect(res.statusCode).toEqual(201)
     });
 
-    it("get a user", async () => {
+    it("update a tag to a user's watched [fetchWatching()]", async () => {
+        const res = await request(app)
+            .get('/api/users')
+            .send({
+                userId: "26d5689d-b15b-4a94-a699-44b3e0fdc401",
+                tags: [{
+                    watching: "yes"
+                }]
+            })
+        expect(res.body).toHaveProperty("userId");
+        expect(res.body).toHaveProperty("tags");
+        expect(res.statusCode).toEqual(201)
+    });
+
+    it("update a tag to a user's watched [removeFromWatched(tagId)]", async () => {
+        const res = await request(app)
+            .post('/api/users')
+            .send({
+                userId: "26d5689d-b15b-4a94-a699-44b3e0fdc401",
+                tags: [{
+                    id: "36",
+                    watching: "no"
+                }]
+            })
+        expect(res.body).toHaveProperty("tags");
+        expect(res.body).toHaveProperty("userId");
+        expect(res.statusCode).toEqual(201)
+    });
+
+    it("get a user [fetchUser(userId)]", async () => {
         const res = await request(app)
             .get('/api/users')
             .send({
