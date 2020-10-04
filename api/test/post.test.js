@@ -60,8 +60,8 @@ describe("post endpoints", () => {
     })
 
     it("add a comment to a post", async () => {
-        const comment = await request(app)
-            .post('/api/posts')
+        const res = await request(app)
+            .update('/api/posts')
             .send({
                 id: "e9b9ab71-a04d-41d6-b0fd-14a8b9527199",
                 comments: [
@@ -75,22 +75,64 @@ describe("post endpoints", () => {
                         userId: '26d5689d-b15b-4a94-a699-44b3e0fdc401',
                     },]
             });
-        expect(comment).toHaveProperty("id");
-        expect(comment).toHaveProperty("comments");
-        expect(comment.id).not.toBeNull();
-        expect(comment.comments).not.toBeNull();
-        // expect(res.statusCode).toEqual(201)
+        expect(res.body).toHaveProperty("id");
+        expect(res.body).toHaveProperty("comments");
+        // expect(comment.id).not.toBeNull();
+        // expect(comment.comments).not.toBeNull();
+        expect(res.statusCode).toEqual(201)
     });
 
     it("add an upvote to a post", async () => {
-        const post = await request(app)
+        const res = await request(app)
             .post('/api/posts')
             .send({
                 comments:
                     [{ "direction": 1, "id": "26d5689d-b15b-4a94-a699-44b3e0fdc401" }]
             })
-        expect(post.body).toHaveProperty("direction");
-        expect(post).toHaveProperty("id");
+        expect(res.body).toHaveProperty("comments");
+        expect(res.statusCode).toEqual(201)
+
+    });
+
+    it("delete a post", () => {
+        const res = await request(app)
+            .delete('/api/post')
+            .send({
+                id: "e9b9ab71-a04d-41d6-b0fd-14a8b9527199"
+            })
+        expect(res.body).toHaveProperty("id");
+        expect(res.body).toBeNull("id");
+        expect(res.statusCode).toEqual(201)
+    });
+
+    it("get a post", () => {
+        const res = await request(app)
+            .get('/api/post')
+            .send({
+                id: "e9b9ab71-a04d-41d6-b0fd-14a8b9527199"
+            })
+        expect(res.body).toHaveProperty("id");
+        expect(res.statusCode).toEqual(201)
+    });
+
+    it("get a post by tag", () => {
+        const res = await request(app)
+            .get('/api/post')
+            .send({
+                tag: [3]
+            })
+        expect(res.body).toHaveProperty("tag");
+        expect(res.statusCode).toEqual(201)
+    });
+
+    it("get a post by user", () => {
+        const res = await request(app)
+            .get('/api/post')
+            .send({
+                username: "A_Person"
+            })
+        expect(res.body).toHaveProperty("username");
+        expect(res.statusCode).toEqual(201)
     });
 
 

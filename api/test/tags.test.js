@@ -2,19 +2,13 @@ const request = require("supertest");
 const app = require("../app");
 
 describe("tag endpoints", () => {
-
-    it("add a tag to watched", async () => {
+    it("delete a tag to watched", async () => {
         const res = await request(app)
-            .post('/api/users')
+            .delete('/api/tags')
             .send({
-                userId: "26d5689d-b15b-4a94-a699-44b3e0fdc401",
-                tags: [{
-                    id: "36",
-                    status: "watched"
-                }]
+                name: "skin tag"
             })
-        expect(res.body).toHaveProperty("tags");
-        expect(res.body).toHaveProperty("userId");
+        expect(res.body).toHaveProperty("name");
         expect(res.statusCode).toEqual(201)
     });
 });

@@ -25,10 +25,10 @@ npx sequelize migration:generate --name tags-post-relationship -- force
 [x] addComment( { postId, text } )
 [x] addToWatched(tagId)
 [x] addVote( { postId, direction } ) // example direction: 1 for up vote, -1 for down vote
-deletePost(postId)
-fetchPost(postId)
-fetchPosts( { type } || { tag } ) // example type: 'popular'
-fetchUserPosts()
-fetchWatching()
-removeFromWatched(tagId)
+[x] deletePost(postId)
+[x] fetchPost(postId)
+[x] fetchPosts( { type } || { tag } ) // example type: 'popular'
+[x] fetchUserPosts()
+[x] fetchWatching()
+[x] removeFromWatched(tagId)
 fetchUser(userId)
