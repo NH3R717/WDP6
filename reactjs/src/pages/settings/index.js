@@ -136,11 +136,11 @@ Settings.propTypes = {
   fetchUser: PropTypes.func,
   saveUser: PropTypes.func,
   user: PropTypes.shape({
+    username: PropTypes.string,
     avatar: PropTypes.string,
     city: PropTypes.string,
     state: PropTypes.string,
     tags: PropTypes.arrayOf(PropTypes.object),
-    username: PropTypes.string,
   }),
 };
 
