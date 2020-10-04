@@ -94,11 +94,11 @@ class Users extends Component {
 Users.propTypes = {
   users: PropTypes.arrayOf(
     PropTypes.shape({
+      username: PropTypes.string,
       avatar: PropTypes.string,
       city: PropTypes.string,
       state: PropTypes.string,
       tags: PropTypes.arrayOf(PropTypes.object),
-      username: PropTypes.string,
     })
   ),
 };
