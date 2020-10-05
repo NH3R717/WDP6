@@ -20,5 +20,12 @@
     "database": "wdp6_database_production",
     "host": "127.0.0.1",
     "dialect": "postgress"
+  },
+  "circleci": {
+    "username": "circleci",
+    "password": null,
+    "database": "circlecidb",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
   }
 }
