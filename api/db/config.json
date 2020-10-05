@@ -2,7 +2,7 @@
   "development": {
     "username": "postgres",
     "password": null,
-    "database": "wd6_development",
+    "database": "wdp6_development",
     "port": "5434",
     "host": "127.0.0.1",
     "dialect": "postgres"
@@ -10,15 +10,15 @@
   "test": {
     "username": "root",
     "password": null,
-    "database": "wd6_database_test",
+    "database": "wdp6_database_test",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "postgres"
   },
   "production": {
     "username": "root",
     "password": null,
-    "database": "wd6_database_production",
+    "database": "wdp6_database_production",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "postgress"
   }
 }
