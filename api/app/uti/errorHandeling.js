@@ -9,3 +9,8 @@ exports.throwError = (code, errorMessage) => err => {
     throw error;
 }
 
+exports.throwIf = (fn, code, errorMessage) => results => {
+    if (fn(results)) {
+        return exports.throwError(code, errorMessage)(new Error());
+    }
+}

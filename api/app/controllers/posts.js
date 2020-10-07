@@ -1,5 +1,5 @@
 const { Post, Sequelize } = require("../models");
-const { throwError } = require('../uti/errorHandeling');
+const { throwError, throwIf } = require('../uti/errorHandeling');
 
 exports.getAll = async (req, res, next) => {
     try {
@@ -11,21 +11,19 @@ exports.getAll = async (req, res, next) => {
     } catch (e) {
         next(e)
     }
-
 };
 
 exports.getOneById = async (req, res, next) => {
     try {
         const { id } = req.params;
-        // const post = await Posts.findByPk(id)
-        const post = await Posts.findByPk(id).catch(
-            throwError(500, "A database error has ocurred, try again.")
-        )
+        const post = await Posts.findByPk(id)
+            .then(
+                throwIf(row => !row, 404, 'Post not found.'),
+                throwError(500, "A database error has ocurred, try again."))
         res.json(post)
     } catch (e) {
         next(e)
     }
-
 };
 
 exports.createPost = async (req, res, next) => {
@@ -35,11 +33,11 @@ exports.createPost = async (req, res, next) => {
             // add arguments that coincide with tests 
             Sequelize.ValidationError, throwError(201, 'Validation Errors'))
         Sequelize.BaseError, throwError(201, '"A database error has ocurred, try again."')
-        res.json(post);
+        res.status(201).json(post);
+        // res.json(post);
     } catch (e) {
         next(e)
     }
-
 };
 
 // exports.createPost = async (req, res) => {
