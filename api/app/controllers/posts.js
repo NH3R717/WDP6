@@ -1,12 +1,15 @@
-const { Post } = require("../models");
+const { Post, Sequelize } = require("../models");
+const { throwError } = require('../uti/errorHandeling');
 
 exports.getAll = async (req, res, next) => {
     try {
         const { type } = req.query;
-        const posts = await Posts.findAll({ where: { type } })
+        const posts = await Posts.findAll({ where: { type } }).catch(
+            throwError(500, "A database error has ocurred, try again.")
+        )
         res.json(posts);
     } catch (e) {
-
+        next(e)
     }
 
 };
@@ -14,10 +17,13 @@ exports.getAll = async (req, res, next) => {
 exports.getOneById = async (req, res, next) => {
     try {
         const { id } = req.params;
-        const post = await Posts.findByPk(id)
+        // const post = await Posts.findByPk(id)
+        const post = await Posts.findByPk(id).catch(
+            throwError(500, "A database error has ocurred, try again.")
+        )
         res.json(post)
     } catch (e) {
-
+        next(e)
     }
 
 };
@@ -25,10 +31,13 @@ exports.getOneById = async (req, res, next) => {
 exports.createPost = async (req, res, next) => {
     try {
         const { name, type } = req.body;
-        const post = await Posts.create({ name, type })
+        const post = await Posts.create({ name, type }).catch(
+            // add arguments that coincide with tests 
+            Sequelize.ValidationError, throwError(201, 'Validation Errors'))
+        Sequelize.BaseError, throwError(201, '"A database error has ocurred, try again."')
         res.json(post);
     } catch (e) {
-
+        next(e)
     }
 
 };
