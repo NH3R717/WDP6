@@ -4,13 +4,6 @@ const router = require('express').Router();
 // import middleware
 // *
 
-{/* <Route exact path="/tags" component={Tags} />
-<Route exact path="/tags/:tagId" component={Tag} / */}
-
-// Edit tag – no edit tags route
-// <Route exact path="/tags/edit/:tagId" component={tagForm} />
-// router.put("/tags/edit/:tagId", tagCtrl.updateTag);
-
 // All tag (tags list)
 // <Route exact path="/tags" component={TagAdmin} />
 router.get("/tags", tagCtrl.getAllTag);
