@@ -13,4 +13,5 @@ exports.throwIf = (fn, code, errorMessage) => results => {
     if (fn(results)) {
         return exports.throwError(code, errorMessage)(new Error());
     }
+    return results;
 }

@@ -18,8 +18,8 @@ app.use("/api/users", userRouter);
 
 app.use((err, req, res, next) => {
   error("ERROR FOUND:", err);
-  res.sendStatus(error.code || 500).json({
-    // res.status(error.code || 500).json({
+  // res.sendStatus(error.code || 500).json({
+  res.status(err.code || 500).json({
     message: error.message,
     error,
   });
