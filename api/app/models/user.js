@@ -45,6 +45,3 @@ module.exports = (sequelize, DataTypes) => {
   };
   return User;
 };
-
-// Questions.belongsTo(models.Quizzes, { foreignKey: "quizId" });
-// Quizzes.hasMany(models.Questions, { foreignKey: "quizId" });
