@@ -2,8 +2,8 @@ const { Tags, Sequelize } = require("../models");
 const { throwError, throwIf } = require('../uti/errorHandeling');
 
 // ToDo
-// – [] addToWatched(tagId) – Don't know.
-// – [] removeFromWatched(tagId) – Don't know.
+// – [] addToWatched(tagId) // ! Don't know about "watching"
+// – [] removeFromWatched(tagId) // ! Don't know about "watching"
 
 exports.getAll = async (req, res, next) => {
     try {
@@ -39,6 +39,18 @@ exports.createTag = async (req, res, next) => {
         // Sequelize.BaseError, throwError(201, '"A database error has ocurred, try again."')
         res.status(201).json(tag);
         // res.json(tag);
+    } catch (e) {
+        next(e)
+    }
+};
+
+exports.deleteTag = async (req, res, next) => {
+    try {
+        const { id } = req.body;
+        const tag = await Tags.destroy({ where: { id } })
+            .catch(Sequelize.ValidationError, throwError(201, 'Validation Errors'))
+            .catch(Sequelize.BaseError, throwError(500, 'A database error has ocurred, try again.'))
+        res.status(200).json(tag);
     } catch (e) {
         next(e)
     }

@@ -7,15 +7,13 @@ const postCtrl = require('../controllers/posts')
 // import middleware
 // *
 
-// Edit post
-router.put('/posts/edit/:postId', postCtrl.updatePost);
-
-// All post (post feed)
+// all post
 //!ttd will follow controllers working (focus on assignment requirements)
-router.get('/posts', postCtrl.getAll);
+router.get('/posts', postCtrl.getAllPost);
 
-// postId
-router.get('/posts/:postId', postCtrl.getOneById);
+// post by
+router.get('/posts/:postId', postCtrl.getOneByIdPost);
+router.put('/posts/', postCtrl.createPost);
 router.put('/posts/:postId', postCtrl.updatePost);
 router.delete('/posts/:postId', postCtrl.deletePost);
 

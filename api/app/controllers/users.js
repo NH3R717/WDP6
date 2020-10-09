@@ -2,7 +2,7 @@ const { Users, Sequelize } = require("../models");
 const { throwError, throwIf } = require('../uti/errorHandeling');
 
 // ToDo
-// – [] fetchUser(userId)
+// – [] fetchUser(userId) √
 
 exports.getAll = async (req, res, next) => {
     try {
@@ -16,6 +16,7 @@ exports.getAll = async (req, res, next) => {
     }
 };
 
+// ! fetchUser(userId)
 exports.getOneById = async (req, res, next) => {
     try {
         const { id } = req.params;
@@ -38,6 +39,18 @@ exports.createUser = async (req, res, next) => {
         // Sequelize.BaseError, throwError(201, '"A database error has ocurred, try again."')
         res.status(201).json(user);
         // res.json(user);
+    } catch (e) {
+        next(e)
+    }
+};
+
+exports.deleteUser = async (req, res, next) => {
+    try {
+        const { id } = req.body;
+        const user = await Users.destroy({ where: { id } })
+            .catch(Sequelize.ValidationError, throwError(201, 'Validation Errors'))
+            .catch(Sequelize.BaseError, throwError(500, 'A database error has ocurred, try again.'))
+        res.status(200).json(user);
     } catch (e) {
         next(e)
     }

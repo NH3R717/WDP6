@@ -10,8 +10,9 @@ router.get('/tags', tagsCtrl.getAllTag);
 
 // tagId
 router.get('/tags/:tagId', tagsCtrl.getOneById);
+// router.put('/tags/', tagsCtrl.createTag);
 router.put('/tags/:tagId', tagsCtrl.updateTag);
-router.delete('/tags/:tagId', tagsCtrl.deleteTag);
+// router.delete('/tags/:tagId', tagsCtrl.deleteTag);
 
 // export the route from this file
 module.exports = router;
