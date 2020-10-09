@@ -20,7 +20,7 @@ Here's what I worked on this past week...
 
 **Week 1**: Data models and Test Driven Development are covered this week. A efficient/normalized data model for https://ship-it.netlify.app/ (a front in ready for data and api integration) is created as well as and Express API server and functional tests are included to check HTTP data request validity.
 
-**Week 2**:
+**Week 2**: Week 2 focuses on error handling through sequelize, node.js and CircleCI. From error handling event logging and debugging techniques are also practiced.
 
 **Week 3**:
 
@@ -34,6 +34,6 @@ Here's what I worked on this past week...
 
 - [x] Repo Created: Complete!
 - [x] Milestone 1: In Progress (API and Test need to be included)
-- [ ] Milestone 2: status
+- [ ] Milestone 2: Error Handling
 - [ ] Milestone 3: status
 - [ ] Milestone 4: status
