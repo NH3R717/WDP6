@@ -32,5 +32,9 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'tags',
   });
-  return tags;
+  Tags.associate = function (models) {
+    Tags.belongsToMany(models.User, { foreignKey: 'tagId' });
+    Tags.belongsToMany(models.Post, { foreignKey: 'tagId' });
+  };
+  return Tags;
 };

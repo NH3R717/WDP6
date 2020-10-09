@@ -33,8 +33,8 @@ module.exports = (sequelize, DataTypes) => {
     modelName: 'comments',
   });
   Comments.associate = function (models) {
-    Comments.hasOne(models.user, { foreignKey: "id" });
-    Comments.hasOne(models.post, { foreignKey: 'id' });
+    Comments.belongsToMany(models.User, { foreignKey: 'commentId' });
+    Comments.belongsToMany(models.Post, { foreignKey: 'commentId' });
   };
-  return comments;
+  return Comments;
 };

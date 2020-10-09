@@ -30,7 +30,6 @@ npx sequelize migration:generate --name user-state-relationship
 / `npx sequelize db:migrate`
 
 / test 
-
 [x] addComment( { postId, text } )
 [x] addToWatched(tagId)
 [x] addVote( { postId, direction } ) // example direction: 1 for up vote, -1 for down vote
