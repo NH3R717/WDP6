@@ -9,7 +9,7 @@ const tagsCtrl = require('../controllers/tags')
 router.get('/tags', tagsCtrl.getAllTag);
 
 // tagId
-router.get('/tags/:tagId', tagsCtrl.getOneById);
+router.get('/tags/:tagId', tagsCtrl.getOneByIdTag);
 // router.put('/tags/', tagsCtrl.createTag);
 router.put('/tags/:tagId', tagsCtrl.updateTag);
 // router.delete('/tags/:tagId', tagsCtrl.deleteTag);
