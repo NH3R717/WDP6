@@ -14,9 +14,9 @@ npx sequelize model:create --name comments --attributes id:UUID,content:string,u
 
 npx sequelize model:create --name state --attributes id:UUID,state:string --force
 
-npx sequelize migration:generate --name users-post-relationship
+npx sequelize migration:generate --name user-post-relationship
 
-npx sequelize migration:generate --name users-comments-relationship
+npx sequelize migration:generate --name user-comments-relationship
 
 npx sequelize migration:generate --name user-tags-relationship
 
