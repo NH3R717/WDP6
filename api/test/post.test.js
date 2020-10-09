@@ -5,6 +5,7 @@ describe("post endpoints", () => {
 
     it("add a comment to a post [addComment()] ", async () => {
         const res = await request(app)
+            // .post = route in routers
             .post('/api/posts')
             .send({
                 id: "e9b9ab71-a04d-41d6-b0fd-14a8b9527199",

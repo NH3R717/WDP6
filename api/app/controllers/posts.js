@@ -1,13 +1,17 @@
 const { Posts, Sequelize } = require("../models");
 const { throwError, throwIf } = require('../uti/errorHandeling');
 
+// ! focus on controllers that coincide with the assignment
+
+// good luck :)
+
 exports.getAll = async (req, res, next) => {
     try {
         const { type } = req.query;
-        const posts = await Posts.findAll({ where: { type } }).catch(
+        const post = await Posts.findAll({ where: { type } }).catch(
             throwError(500, "A database error has ocurred, try again.")
         )
-        res.json(posts);
+        res.json(post);
     } catch (e) {
         next(e)
     }
