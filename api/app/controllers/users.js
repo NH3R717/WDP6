@@ -1,6 +1,9 @@
 const { Users, Sequelize } = require("../models");
 const { throwError, throwIf } = require('../uti/errorHandeling');
 
+// ToDo
+// – [] fetchUser(userId)
+
 exports.getAll = async (req, res, next) => {
     try {
         const { name } = req.query;

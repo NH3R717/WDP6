@@ -1,6 +1,10 @@
 const { Tags, Sequelize } = require("../models");
 const { throwError, throwIf } = require('../uti/errorHandeling');
 
+// ToDo
+// – [] addToWatched(tagId) – Don't know.
+// – [] removeFromWatched(tagId) – Don't know.
+
 exports.getAll = async (req, res, next) => {
     try {
         const { name } = req.query;

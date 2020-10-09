@@ -3,6 +3,14 @@ const { throwError, throwIf } = require('../uti/errorHandeling');
 
 // ! focus on controllers that coincide with the assignment
 
+// ToDo
+// – [] addComment( { postId, text } )
+// – [] deletePost(postId)
+// – [] fetchPost(postId)
+// – [] fetchPosts( { type } || { tag } ) // example type: 'popular'
+// – [] fetchUserPosts()
+// – [] fetchWatching()
+
 // good luck :)
 
 exports.getAll = async (req, res, next) => {
