@@ -10,8 +10,9 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Post.hasOne(models.Users, { foreignKey: "id" });
+      Post.hasOne(models.User, { foreignKey: "id" });
       Post.hasMany(models.Tags, { foreignKey: "id" });
+      Post.hasMany(models.Comments, { foreignKey: "id" });
     }
   };
   post.init({
@@ -19,37 +20,37 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
       type: DataTypes.UUID(),
-      validate: {
-        isUUID: { args: 4, msg: "Id not valid, please try again" },
-      },
+      // validate: {
+      //   isUUID: { args: 4, msg: "ID is necessary." },
+      // },
+    },
+    user: {
+      type: DataTypes.STRING,
+      allowNull: { args: false, msg: "User is required." },
     },
     title: {
       type: DataTypes.STRING,
-      allowNull: { args: false, msg: "Title is required" },
+      allowNull: { args: false, msg: "Title is required." },
     },
     content: {
       type: DataTypes.STRING,
-      allowNull: { args: false, msg: "Post content is required" },
+      allowNull: { args: false, msg: "Post content is required." },
     },
     commentCount: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: { args: false, msg: "Comment count is required." },
     },
-    user: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
-      allowNull: false,
+    totalVotes: {
+      type: DataTypes.INTEGER,
+      allowNull: { args: false, msg: "Vote count should be at least zero." },
     },
-    tags: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
-      allowNull: false,
+    tagsId: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
     },
-    votes: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
-      allowNull: false,
-    },
-    comments: {
-      type: DataTypes.ARRAY(DataTypes.TEXT),
-      allowNull: false,
+    commentsID: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
     },
   }, {
     sequelize,
