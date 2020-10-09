@@ -12,7 +12,7 @@ const userCtrl = require('../controllers/users')
 router.get('/users', userCtrl.getAllUser);
 
 // userId
-router.get('/users/:userId', userCtrl.getOneById);
+router.get('/users/:userId', userCtrl.getOneByIdUser);
 // router.put('/users/', userCtrl.createUser);
 router.put('/users/:userId', userCtrl.updateUser);
 router.delete('/users/:userId', userCtrl.deleteUser);

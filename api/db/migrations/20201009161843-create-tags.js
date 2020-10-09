@@ -11,9 +11,6 @@ module.exports = {
           isUUID: { args: 4, msg: "Id not valid, please try again." },
         },
       },
-      id: {
-        type: Sequelize.UUID
-      },
       name: {
         type: Sequelize.STRING
       },

@@ -16,7 +16,7 @@ const userRouter = require("./routes/users");
 
 // routers
 
-app.use("/api/posts", postRouter); r
+app.use("/api/posts", postRouter);
 app.use("/api/tags", tagRouter);
 app.use("/api/users", userRouter);
 

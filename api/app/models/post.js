@@ -14,7 +14,17 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   post.init({
-    id: DataTypes.UUID,
+    id: {
+      allowNull: false,
+      primaryKey: true,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+      validate: {
+        // validates to UUID version 4
+        isUUID: { args: 4, msg: "Id not valid, please try again." },
+        // unique:true,
+      },
+    },
     title: DataTypes.STRING,
     content: DataTypes.TEXT,
     commentCount: DataTypes.INTEGER,

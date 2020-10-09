@@ -14,7 +14,17 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   tags.init({
-    id: DataTypes.UUID,
+    id: {
+      allowNull: false,
+      primaryKey: true,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+      validate: {
+        // validates to UUID version 4
+        isUUID: { args: 4, msg: "Id not valid, please try again." },
+        // unique:true,
+      },
+    },
     name: DataTypes.STRING,
     icon: DataTypes.BLOB,
     count: DataTypes.INTEGER
