@@ -5,10 +5,11 @@ module.exports = {
       id: {
         allowNull: false,
         primaryKey: true,
-        unique: true,
-        // type: Sequelize.INTEGER(),
-        type: Sequelize.UUID(),
-        // defaultValue: Sequelize.UUIDV4,
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+        validate: {
+          isUUID: { args: 4, msg: "Id not valid, please try again." },
+        },
       },
       title: {
         type: Sequelize.STRING,

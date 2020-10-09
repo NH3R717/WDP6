@@ -4,9 +4,12 @@ module.exports = {
     await queryInterface.createTable('states', {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+        validate: {
+          isUUID: { args: 4, msg: "Id not valid, please try again." },
+        },
       },
       id: {
         type: Sequelize.UUID

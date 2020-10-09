@@ -10,9 +10,13 @@ app.use(express.json)
 // app.use(cors());
 app.use(morganDebug("api:request", "dev"));
 
+const postRouter = require("./routes/posts");
+const tagRouter = require("./routes/tags");
+const userRouter = require("./routes/users");
+
 // routers
 
-app.use("/api/posts", postRouter);
+app.use("/api/posts", postRouter); r
 app.use("/api/tags", tagRouter);
 app.use("/api/users", userRouter);
 
