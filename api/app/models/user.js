@@ -38,10 +38,10 @@ module.exports = (sequelize, DataTypes) => {
     modelName: 'user',
   });
   User.associate = function (models) {
-    User.hasOne(models.State, { foreignKey: 'stateId' });
-    User.hasMany(models.Post, { foreignKey: 'postId' })
-    User.belongsToMany(models.Tags, { foreignKey: 'tagId' })
-    User.belongsToMany(models.Comments, { foreignKey: 'commentId' })
+    User.hasOne(models.state, { foreignKey: 'stateId' });
+    //   User.hasMany(models.Post, { foreignKey: 'postId' })
+    //   User.belongsToMany(models.Tags, { foreignKey: 'tagId' })
+    //   User.belongsToMany(models.Comments, { foreignKey: 'commentId' })
   };
   return User;
 };

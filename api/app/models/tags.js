@@ -32,9 +32,9 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'tags',
   });
-  Tags.associate = function (models) {
-    Tags.belongsToMany(models.User, { foreignKey: 'tagId' });
-    Tags.belongsToMany(models.Post, { foreignKey: 'tagId' });
-  };
+  // Tags.associate = function (models) {
+  //   Tags.belongsToMany(models.User, { foreignKey: 'tagId' });
+  //   Tags.belongsToMany(models.Post, { foreignKey: 'tagId' });
+  // };
   return Tags;
 };

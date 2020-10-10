@@ -4,6 +4,8 @@ npm i --save-dev nodemon
 
 note multiple files, check react props types
 
+<!-- migration reset / undo -->
+
 npx sequelize model:create --name user --attributes id:uuid,username:string,password:string,avatar:blob,city:string,stateId:integer,tagsId:integer,postId:integer,commentsId:string --force
 
 npx sequelize model:create --name post --attributes id:UUID,title:string,content:text,commentCount:integer,userId:integer,tagsId:integer,totalVotes:integer,commentsId:integer --force
