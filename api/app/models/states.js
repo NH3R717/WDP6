@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class State extends Model {
+  class States extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   };
-  State.init({
+  States.init({
     id: {
       allowNull: false,
       primaryKey: true,
@@ -30,11 +30,11 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'states',
   });
-  State.associate = function (models) {
-    // console.log('>>>', models)
-    State.belongsTo(models.user, { foreignKey: 'stateId' });
+  States.associate = function (models) {
+    console.log(models)
+    States.belongsTo(models.users, { foreignKey: 'stateId' });
     // Questions.belongsTo(models.Quizzes, { foreignKey: "quizId" });
     // Questions.hasMany(models.Choices, { foreignKey: "questionId" });
   };
-  return State;
+  return States;
 };
