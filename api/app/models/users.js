@@ -29,16 +29,21 @@ module.exports = (sequelize, DataTypes) => {
     password: DataTypes.STRING,
     avatar: DataTypes.BLOB,
     city: DataTypes.STRING,
-    stateId: DataTypes.UUID,
+    stateId: {
+      type: DataTypes.UUID,
+      unique: true,
+    },
+
+    
     tagsId: DataTypes.INTEGER,
     postId: DataTypes.INTEGER,
     commentsId: DataTypes.STRING
   }, {
     sequelize,
-    modelName: 'user',
+    modelName: 'users',
   });
   User.associate = function (models) {
-    User.hasOne(models.state, { foreignKey: 'stateId' });
+    User.hasOne(models.states, { foreignKey: 'stateId' });
     //   User.hasMany(models.Post, { foreignKey: 'postId' })
     //   User.belongsToMany(models.Tags, { foreignKey: 'tagId' })
     //   User.belongsToMany(models.Comments, { foreignKey: 'commentId' })
