@@ -10,53 +10,48 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Users.hasMany(models.Tags, { foreignKey: "id" });
-      Users.hasMany(models.Posts, { foreignKey: "id" });
+      // define association here
     }
   };
-  users.init({
-    userId: {
-      defaultValue: DataTypes.UUIDV4,
-      primaryKey: true,
-      type: DataTypes.UUID(),
-      validate: {
-        isUUID: { args: 4, msg: "Id not valid, please try again" },
-      },
-    },
-    username: {
-      type: DataTypes.STRING,
-      unique: {
-        args: true,
-        msg: "Username is already in use, choose another one.",
-      },
-      allowNull: { args: false, msg: "Username is required" },
-    },
-    password: {
-      type: DataTypes.STRING,
+  Users.init({
+    id: {
       allowNull: false,
+      primaryKey: true,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
       validate: {
-        isUUID: { args: 4, msg: "password not valid, use at least 4 characters" },
+        // validates to UUID version 4
+        isUUID: { args: 4, msg: "Id not valid, please try again." },
       },
+      unique: true,
     },
-    avatar: {
-      type: DataTypes.BLOB,
-      allowNull: true,
+    username: DataTypes.STRING,
+    password: DataTypes.STRING,
+    avatar: DataTypes.BLOB,
+    city: DataTypes.STRING,
+    stateId: {
+      type: DataTypes.UUID,
+      unique: true,
     },
-    city: {
-      type: DataTypes.STRING,
-      allowNull: true,
+    tagsId: {
+      type: DataTypes.UUID,
+      unique: true,
     },
-    state: {
-      type: DataTypes.STRING,
-      allowNull: true,
+    postsId: {
+      type: DataTypes.UUID,
+      unique: true,
     },
-    tags: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
-      allowNull: true,
-    }
+    commentsId: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'users',
   });
+  Users.associate = function (models) {
+    Users.hasOne(models.states, { foreignKey: 'stateId' });
+    // Users.hasOne(models.posts, { foreignKey: 'username' })
+    Users.hasMany(models.posts, { foreignKey: 'postsId' });
+    Users.hasMany(models.tags, { foreignKey: 'tagsId' });
+    Users.hasMany(models.comments, { foreignKey: 'commentsId' });
+  };
   return Users;
 };

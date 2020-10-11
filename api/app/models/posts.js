@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Tags extends Model {
+  class Posts extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   };
-  Tags.init({
+  Posts.init({
     id: {
       allowNull: false,
       primaryKey: true,
@@ -25,16 +25,25 @@ module.exports = (sequelize, DataTypes) => {
         // unique:true,
       },
     },
-    name: DataTypes.STRING,
-    icon: DataTypes.BLOB,
-    count: DataTypes.INTEGER
+    // user: {
+    //   type: DataTypes.UUID,
+    //   unique: true,
+    // },
+    title: DataTypes.STRING,
+    content: DataTypes.TEXT,
+    commentCount: DataTypes.INTEGER,
+    tagsId: DataTypes.INTEGER,
+    totalVotes: DataTypes.INTEGER,
+    commentsId: DataTypes.INTEGER
   }, {
     sequelize,
-    modelName: 'tags',
+    modelName: 'posts',
   });
-  Tags.associate = function (models) {
-    Tags.belongsToMany(models.users, { through: 'tagsId' });
-    Tags.belongsToMany(models.posts, { through: 'postId' });
-  };
-  return Tags;
+  Posts.associate = function (models) {
+    Posts.belongsTo(models.users, { foreignKey: 'postsId' });
+    // Posts.belongsTo(models.users, { foreignKey: 'username' });
+    Posts.hasMany(models.tags, { foreignKey: 'tagsId' });
+    Posts.hasMany(models.comments, { foreignKey: 'commentsId' });
+    };
+  return Posts;
 };

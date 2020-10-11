@@ -5,6 +5,7 @@ describe("post endpoints", () => {
 
     it("add a comment to a post [addComment()] ", async () => {
         const res = await request(app)
+            // .post = route in routers
             .post('/api/posts')
             .send({
                 id: "e9b9ab71-a04d-41d6-b0fd-14a8b9527199",
@@ -39,7 +40,7 @@ describe("post endpoints", () => {
 
     it("delete a post [deletePost(postId)]", async () => {
         const res = await request(app)
-            .delete('/api/post')
+            .delete('/api/posts')
             .send({
                 id: "e9b9ab71-a04d-41d6-b0fd-14a8b9527199"
             })
@@ -50,7 +51,7 @@ describe("post endpoints", () => {
 
     it("get a post [fetchPost(postId)]", async () => {
         const res = await request(app)
-            .get('/api/post')
+            .get('/api/posts')
             .send({
                 id: "e9b9ab71-a04d-41d6-b0fd-14a8b9527199"
             })
@@ -60,7 +61,7 @@ describe("post endpoints", () => {
 
     it("get a post by tag [fetchPosts(tag)]", async () => {
         const res = await request(app)
-            .get('/api/post')
+            .get('/api/posts')
             .send({
                 tag: [3]
             })
@@ -70,11 +71,11 @@ describe("post endpoints", () => {
 
     it("get a post by user [fetchUserPosts()]", async () => {
         const res = await request(app)
-            .get('/api/post')
+            .get('/api/posts')
             .send({
-                username: "A_Person"
+                userId: "3bb559cd-dad0-444a-87eb-257a0c858a1f"
             })
-        expect(res.body).toHaveProperty("username");
+        expect(res.body).toHaveProperty("userId");
         expect(res.statusCode).toEqual(201)
     });
 
