@@ -7,10 +7,12 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,
-      //   references: {
-      //     model: 'users',
-      //     key: 'stateId',
-      // },
+        unique: true,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'user',
+          key: 'stateId',
+      },
       },
       state: {
         type: Sequelize.STRING
@@ -26,6 +28,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('states');
+    await queryInterface.dropTable('state');
   }
 };

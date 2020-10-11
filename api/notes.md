@@ -44,4 +44,5 @@ npx sequelize migration:generate --name user-state-relationship
 [x] removeFromWatched(tagId)
 fetchUser(userId)
 
+update – migrations / models (*)
 
