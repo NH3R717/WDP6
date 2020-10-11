@@ -33,7 +33,7 @@ npx sequelize migration:generate --name user-state-relationship
 / `npx sequelize db:migrate`
 / `npm run test`
 
-update – migrations / models (8 / user-tags relationships)
+update – migrations / models (9 / user-post[user] relationships)
 
 / test 
 [x] addComment( { postId, text } )
