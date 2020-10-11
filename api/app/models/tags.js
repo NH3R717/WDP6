@@ -34,7 +34,7 @@ module.exports = (sequelize, DataTypes) => {
   });
   Tags.associate = function (models) {
     Tags.belongsToMany(models.users, { through: 'tagsId' });
-  //   Tags.belongsToMany(models.Post, { foreignKey: 'tagsId' });
+    Tags.belongsToMany(models.posts, { through: 'postId' });
   };
   return Tags;
 };

@@ -32,7 +32,7 @@ module.exports = {
         onDelete: 'CASCADE',
         unique: true,
       },
-      postId: {
+      postsId: {
         type: Sequelize.UUID,
         onDelete: 'CASCADE',
         unique: true,

@@ -33,8 +33,8 @@ module.exports = (sequelize, DataTypes) => {
     modelName: 'comments',
   });
   Comments.associate = function (models) {
-    Comments.belongsTo(models.users, { through: 'commentsId' });
-    // Comments.belongsToMany(models.Post, { foreignKey: 'commentId' });
+    Comments.belongsToMany(models.users, { through: 'commentsId' });
+    Comments.belongsToMany(models.posts, { through: 'commentId' });
   };
   return Comments;
 };

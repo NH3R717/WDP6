@@ -25,7 +25,10 @@ module.exports = (sequelize, DataTypes) => {
         // unique:true,
       },
     },
-    user: DataTypes.STRING,
+    // user: {
+    //   type: DataTypes.UUID,
+    //   unique: true,
+    // },
     title: DataTypes.STRING,
     content: DataTypes.TEXT,
     commentCount: DataTypes.INTEGER,
@@ -37,10 +40,10 @@ module.exports = (sequelize, DataTypes) => {
     modelName: 'posts',
   });
   Posts.associate = function (models) {
-    Posts.belongsTo(models.users, { foreignKey: 'postId' });
-    Posts.hasOne(models.users, { foreignKey: 'user' })
-  //     Post.hasMany(models.Tags, { foreignKey: 'tagId' })
-  //     Post.hasMany(models.Comments, { foreignKey: 'commentId' })
+    Posts.belongsTo(models.users, { foreignKey: 'postsId' });
+    // Posts.belongsTo(models.users, { foreignKey: 'username' });
+    Posts.hasMany(models.tags, { foreignKey: 'tagsId' });
+    Posts.hasMany(models.comments, { foreignKey: 'commentsId' });
     };
   return Posts;
 };
