@@ -10,7 +10,7 @@ module.exports = {
         unique: true,
         onDelete: 'CASCADE',
         references: {
-          model: 'user',
+          model: 'users',
           key: 'stateId',
       },
       },

@@ -45,4 +45,3 @@ npx sequelize migration:generate --name user-state-relationship
 fetchUser(userId)
 
 update – migrations / models (4)
-
