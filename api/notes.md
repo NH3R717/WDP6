@@ -33,6 +33,8 @@ npx sequelize migration:generate --name user-state-relationship
 / `npx sequelize db:migrate`
 / `npm run test`
 
+update – migrations / models (8 / user-tags relationships)
+
 / test 
 [x] addComment( { postId, text } )
 [x] addToWatched(tagId)
@@ -45,4 +47,3 @@ npx sequelize migration:generate --name user-state-relationship
 [x] removeFromWatched(tagId)
 fetchUser(userId)
 
-update – migrations / models (7 / post tables)
