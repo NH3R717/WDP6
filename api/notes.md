@@ -34,7 +34,7 @@ npx sequelize migration:generate --name users-states-relationship
 / `npm run test`
 
 update – migrations / models (11 / comments / tags – relationships)
-update – migrations (17 / *)
+update – migrations (18 / *)
 
 
 / test 

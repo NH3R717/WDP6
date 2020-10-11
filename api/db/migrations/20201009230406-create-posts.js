@@ -35,27 +35,27 @@ module.exports = {
       // userId: {
       //   type: Sequelize.INTEGER
       // },
-      tagsId: {
-        type: Sequelize.STRING,
-        unique: true,
+      // tagsId: {
+      //   type: Sequelize.STRING,
+      //   unique: true,
       //   onDelete: 'CASCADE',
       //   references: {
       //     model: 'tags',
       //     key: 'id',
       // },
-      },
+      // },
       totalVotes: {
         type: Sequelize.INTEGER
       },
-      commentsId: {
-        type: Sequelize.STRING,
-        unique: true,
+      // commentsId: {
+      //   type: Sequelize.STRING,
+      //   unique: true,
       //   onDelete: 'CASCADE',
       //   references: {
       //     model: 'comments',
       //     key: 'id',
       // },
-      },
+      // },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
