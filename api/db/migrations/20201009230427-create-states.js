@@ -1,21 +1,21 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('tags', {
+    await queryInterface.createTable('states', {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
+        unique: true,
+      //   onDelete: 'CASCADE',
+      //   references: {
+      //     model: 'users',
+      //     key: 'stateId',
+      // },
       },
-      name: {
+      state: {
         type: Sequelize.STRING
-      },
-      icon: {
-        type: Sequelize.STRING
-      },
-      count: {
-        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
@@ -28,6 +28,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('tags');
+    await queryInterface.dropTable('states');
   }
 };

@@ -78,7 +78,7 @@ describe("detailed description", async () => {
     expect(res.body).toHaveProperty("property");
     expect(res.statusCode).toEqual(201)
   });
-  // addComment( { postId, text } )
+  // addComment( { postsId, text } )
 
   it("adds a comment to a post", () => {
     const addComment = {
