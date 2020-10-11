@@ -21,7 +21,12 @@ module.exports = {
         type: Sequelize.STRING
       },
       stateId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.UUID,
+        onDelete: 'CASCADE',
+        references: {
+            model: 'state',
+            key: 'id',
+        },
       },
       tagsId: {
         type: Sequelize.INTEGER

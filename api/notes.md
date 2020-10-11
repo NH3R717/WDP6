@@ -28,6 +28,7 @@ npx sequelize migration:generate --name post-comments-relationship
 
 npx sequelize migration:generate --name user-state-relationship
 
+/ `npx sequelize db:migrate:undo:all`
 / `npx sequelize db:create`
 / `npx sequelize db:migrate`
 
@@ -42,3 +43,5 @@ npx sequelize migration:generate --name user-state-relationship
 [x] fetchWatching()
 [x] removeFromWatched(tagId)
 fetchUser(userId)
+
+

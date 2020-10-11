@@ -31,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
     modelName: 'state',
   });
   State.associate = function (models) {
-    console.log('>>>', models)
+    // console.log('>>>', models)
     State.belongsTo(models.user, { foreignKey: 'stateId' });
   };
   return State;
