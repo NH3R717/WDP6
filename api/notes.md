@@ -31,6 +31,7 @@ npx sequelize migration:generate --name user-state-relationship
 / `npx sequelize db:migrate:undo:all`
 / `npx sequelize db:create`
 / `npx sequelize db:migrate`
+/ `npm run test`
 
 / test 
 [x] addComment( { postId, text } )
@@ -44,4 +45,4 @@ npx sequelize migration:generate --name user-state-relationship
 [x] removeFromWatched(tagId)
 fetchUser(userId)
 
-update – migrations / models (4)
+update – migrations / models (6 / model naming consistency w/ jest)

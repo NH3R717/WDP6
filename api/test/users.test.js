@@ -7,7 +7,7 @@ describe("user endpoints", () => {
         const res = await request(app)
             .post('/api/user')
             .send({
-                userId: "26d5689d-b15b-4a94-a699-44b3e0fdc401",
+                id: "26d5689d-b15b-4a94-a699-44b3e0fdc401",
                 tags: [{
                     id: "36",
                     watching: "yes"
@@ -20,9 +20,9 @@ describe("user endpoints", () => {
 
     it("update a tag to a user's watched [fetchWatching()]", async () => {
         const res = await request(app)
-            .get('/api/user')
+            .get('/api/users')
             .send({
-                userId: "26d5689d-b15b-4a94-a699-44b3e0fdc401",
+                id: "26d5689d-b15b-4a94-a699-44b3e0fdc401",
                 tags: [{
                     watching: "yes"
                 }]
@@ -34,9 +34,9 @@ describe("user endpoints", () => {
 
     it("update a tag to a user's watched [removeFromWatched(tagId)]", async () => {
         const res = await request(app)
-            .post('/api/user')
+            .post('/api/users')
             .send({
-                userId: "26d5689d-b15b-4a94-a699-44b3e0fdc401",
+                id: "26d5689d-b15b-4a94-a699-44b3e0fdc401",
                 tags: [{
                     id: "36",
                     watching: "no"
@@ -49,9 +49,9 @@ describe("user endpoints", () => {
 
     it("get a user [fetchUser(userId)]", async () => {
         const res = await request(app)
-            .get('/api/user')
+            .get('/api/users')
             .send({
-                userId: "26d5689d-b15b-4a94-a699-44b3e0fdc401",
+                id: "26d5689d-b15b-4a94-a699-44b3e0fdc401",
             })
         expect(res.body).toHaveProperty("userId");
         expect(res.statusCode).toEqual(201)
