@@ -82,13 +82,13 @@ exports.updatePost = async (req, res, next) => {
 // ! deletePost(postId)
 exports.deletePost = async (req, res, next) => {
     console.log(deletePost)
-    // try {
-    //     const { id } = req.body;
-    //     const post = await Posts.destroy({ where: { id } })
-    //         .catch(Sequelize.ValidationError, throwError(201, 'Validation Errors'))
-    //         .catch(Sequelize.BaseError, throwError(500, 'A database error has ocurred, try again.'))
-    //     res.status(200).json(post);
-    // } catch (e) {
-    //     next(e)
-    // }
+    try {
+        const { id } = req.body;
+        const post = await Posts.destroy({ where: { id } })
+            .catch(Sequelize.ValidationError, throwError(201, 'Validation Errors'))
+            .catch(Sequelize.BaseError, throwError(500, 'A database error has ocurred, try again.'))
+        res.status(200).json(post);
+    } catch (e) {
+        next(e)
+    }
 };
