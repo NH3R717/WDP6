@@ -27,13 +27,19 @@ module.exports = {
         unique: true,
       },
       tagsId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.UUID,
+        onDelete: 'CASCADE',
+        unique: true,
       },
       postId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.UUID,
+        onDelete: 'CASCADE',
+        unique: true,
       },
       commentsId: {
-        type: Sequelize.STRING
+        type: Sequelize.UUID,
+        onDelete: 'CASCADE',
+        unique: true,
       },
       createdAt: {
         allowNull: false,

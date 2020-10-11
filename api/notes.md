@@ -45,4 +45,4 @@ npx sequelize migration:generate --name user-state-relationship
 [x] removeFromWatched(tagId)
 fetchUser(userId)
 
-update – migrations / models (6 / model naming consistency w/ jest)
+update – migrations / models (7 / post tables)

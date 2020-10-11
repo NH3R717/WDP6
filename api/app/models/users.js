@@ -33,8 +33,14 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.UUID,
       unique: true,
     },
-    tagsId: DataTypes.INTEGER,
-    postId: DataTypes.INTEGER,
+    tagsId: {
+      type: DataTypes.UUID,
+      unique: true,
+    },
+    postId: {
+      type: DataTypes.UUID,
+      unique: true,
+    },
     commentsId: DataTypes.STRING
   }, {
     sequelize,
@@ -42,7 +48,7 @@ module.exports = (sequelize, DataTypes) => {
   });
   Users.associate = function (models) {
     Users.hasOne(models.states, { foreignKey: 'stateId' });
-    //   User.hasMany(models.Post, { foreignKey: 'postId' })
+      Users.hasMany(models.posts, { foreignKey: 'postId' })
     //   User.belongsToMany(models.Tags, { foreignKey: 'tagId' })
     //   User.belongsToMany(models.Comments, { foreignKey: 'commentId' })
   };

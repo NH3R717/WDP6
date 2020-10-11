@@ -36,10 +36,10 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'posts',
   });
-  // Post.associate = function (models) {
-  //     Post.belongsTo(models.User, { foreignKey: 'postId' });
+  Posts.associate = function (models) {
+  Posts.belongsTo(models.users, { foreignKey: 'postId' });
   //     Post.hasMany(models.Tags, { foreignKey: 'tagId' })
   //     Post.hasMany(models.Comments, { foreignKey: 'commentId' })
-  //   };
+    };
   return Posts;
 };
