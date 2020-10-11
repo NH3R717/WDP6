@@ -9,10 +9,12 @@ module.exports = {
         defaultValue: Sequelize.UUIDV4,
         unique: true,
         onDelete: 'CASCADE',
-        references: {
-          model: 'users',
-          key: 'tagsId',
-      },
+      //   references: {
+      //     model: 'users',
+      //     key: 'tagsId',
+      //     model: 'posts',
+      //     key: 'tagsId',
+      // },
       },
       name: {
         type: Sequelize.STRING

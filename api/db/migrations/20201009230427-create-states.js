@@ -8,11 +8,11 @@ module.exports = {
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,
         unique: true,
-        onDelete: 'CASCADE',
-        references: {
-          model: 'users',
-          key: 'stateId',
-      },
+      //   onDelete: 'CASCADE',
+      //   references: {
+      //     model: 'users',
+      //     key: 'stateId',
+      // },
       },
       state: {
         type: Sequelize.STRING

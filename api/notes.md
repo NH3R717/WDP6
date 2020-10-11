@@ -16,17 +16,17 @@ npx sequelize model:create --name comments --attributes id:UUID,content:string,u
 
 npx sequelize model:create --name state --attributes id:UUID,state:string --force
 
-npx sequelize migration:generate --name user-post-relationship
+npx sequelize migration:generate --name users-posts-relationship
 
-npx sequelize migration:generate --name user-comments-relationship
+npx sequelize migration:generate --name users-comments-relationship
 
-npx sequelize migration:generate --name user-tags-relationship
+npx sequelize migration:generate --name users-tags-relationship
 
-npx sequelize migration:generate --name post-tags-relationship
+npx sequelize migration:generate --name posts-tags-relationship
 
-npx sequelize migration:generate --name post-comments-relationship
+npx sequelize migration:generate --name posts-comments-relationship
 
-npx sequelize migration:generate --name user-state-relationship
+npx sequelize migration:generate --name users-states-relationship
 
 / `npx sequelize db:migrate:undo:all`
 / `npx sequelize db:create`
@@ -34,6 +34,8 @@ npx sequelize migration:generate --name user-state-relationship
 / `npm run test`
 
 update – migrations / models (11 / comments / tags – relationships)
+update – migrations (12)
+
 
 / test 
 [x] addComment( { postId, text } )

@@ -8,20 +8,20 @@ module.exports = {
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,
         unique: true,
-        onDelete: 'CASCADE',
-        references: {
-          model: 'users',
-          key: 'postsId',
-      },
+      //   onDelete: 'CASCADE',
+      //   references: {
+      //     model: 'users',
+      //     key: 'postsId',
+      // },
       },
       user: {
         type: Sequelize.STRING,
         unique: true,
-        onDelete: 'CASCADE',
-        references: {
-          model: 'users',
-          key: 'username',
-      },
+      //   onDelete: 'CASCADE',
+      //   references: {
+      //     model: 'users',
+      //     key: 'username',
+      // },
       },
       title: {
         type: Sequelize.STRING
@@ -36,13 +36,25 @@ module.exports = {
       //   type: Sequelize.INTEGER
       // },
       tagsId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING,
+        unique: true,
+      //   onDelete: 'CASCADE',
+      //   references: {
+      //     model: 'tags',
+      //     key: 'id',
+      // },
       },
       totalVotes: {
         type: Sequelize.INTEGER
       },
       commentsId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING,
+        unique: true,
+      //   onDelete: 'CASCADE',
+      //   references: {
+      //     model: 'comments',
+      //     key: 'id',
+      // },
       },
       createdAt: {
         allowNull: false,

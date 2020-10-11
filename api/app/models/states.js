@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         // validates to UUID version 4
         isUUID: { args: 4, msg: "Id not valid, please try again." },
-        // unique:true,
+        unique:true,
       },
     },
     state: DataTypes.STRING

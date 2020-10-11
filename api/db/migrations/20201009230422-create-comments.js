@@ -9,10 +9,10 @@ module.exports = {
         defaultValue: Sequelize.UUIDV4,
         unique: true,
         onDelete: 'CASCADE',
-        references: {
-          model: 'users',
-          key: 'commentsId',
-      },
+      //   references: {
+      //     model: 'users',
+      //     key: 'commentsId',
+      // },
       },
       content: {
         allowNull: false,
@@ -21,11 +21,11 @@ module.exports = {
       user: {
         type: Sequelize.STRING,
         unique: true,
-        onDelete: 'CASCADE',
-        references: {
-          model: 'users',
-          key: 'username',
-      },
+      //   onDelete: 'CASCADE',
+      //   references: {
+      //     model: 'users',
+      //     key: 'username',
+      // },
       },
       count: {
         type: Sequelize.INTEGER
