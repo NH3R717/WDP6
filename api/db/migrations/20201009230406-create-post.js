@@ -14,6 +14,15 @@ module.exports = {
           key: 'postId',
       },
       },
+      user: {
+        type: Sequelize.STRING,
+        unique: true,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'users',
+          key: 'username',
+      },
+      },
       title: {
         type: Sequelize.STRING
       },
@@ -23,9 +32,9 @@ module.exports = {
       commentCount: {
         type: Sequelize.INTEGER
       },
-      userId: {
-        type: Sequelize.INTEGER
-      },
+      // userId: {
+      //   type: Sequelize.INTEGER
+      // },
       tagsId: {
         type: Sequelize.INTEGER
       },

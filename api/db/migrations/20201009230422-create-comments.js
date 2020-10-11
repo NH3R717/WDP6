@@ -7,12 +7,25 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,
+        unique: true,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'users',
+          key: 'commentsId',
+      },
       },
       content: {
+        allowNull: false,
         type: Sequelize.STRING
       },
-      userName: {
-        type: Sequelize.STRING
+      user: {
+        type: Sequelize.STRING,
+        unique: true,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'users',
+          key: 'username',
+      },
       },
       count: {
         type: Sequelize.INTEGER

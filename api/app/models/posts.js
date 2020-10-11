@@ -25,10 +25,10 @@ module.exports = (sequelize, DataTypes) => {
         // unique:true,
       },
     },
+    user: DataTypes.STRING,
     title: DataTypes.STRING,
     content: DataTypes.TEXT,
     commentCount: DataTypes.INTEGER,
-    userId: DataTypes.INTEGER,
     tagsId: DataTypes.INTEGER,
     totalVotes: DataTypes.INTEGER,
     commentsId: DataTypes.INTEGER
