@@ -1,19 +1,21 @@
 // import the express router
 const router = require('express').Router();
+const tagsCtrl = require('../controllers/tags')
 
-// import middleware
+// ToDo import middleware
 // *
 
 // All tag (tags list)
-// <Route exact path="/tags" component={TagAdmin} />
-router.get("/tags", tagCtrl.getAllTag);
-
+router.get('/tags', tagsCtrl.getAllTag);
 
 // tagId
-// <Route exact path="/tags/:tagId" component={tag} />
-router.get('/tags/:tagId"', tagCtrl.getOneById);
-router.put('/tags/:tagId"', tagCtrl.updateTag);
-router.delete('/tags/:tagId"', tagCtrl.deleteTag);
+router.get('/tags/:tagId', tagsCtrl.getOneByIdTag);
+// ! below not assigned
+router.put('/tags/', tagsCtrl.createTag);
+router.put('/tags/:tagId', tagsCtrl.updateTag);
+// ! below not assigned
+router.delete('/tags/:tagId', tagsCtrl.deleteTag);
 
 // export the route from this file
 module.exports = router;
+

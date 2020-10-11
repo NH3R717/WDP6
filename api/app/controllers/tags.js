@@ -1,7 +1,11 @@
 const { Tags, Sequelize } = require("../models");
 const { throwError, throwIf } = require('../uti/errorHandeling');
 
-exports.getAll = async (req, res, next) => {
+// ToDo
+// – [] addToWatched(tagId) // ! Don't know about "watching"
+// – [] removeFromWatched(tagId) // ! Don't know about "watching"
+
+exports.getAllTag = async (req, res, next) => {
     try {
         const { name } = req.query;
         const tags = await Tags.findAll({ where: { name } }).catch(
@@ -13,7 +17,7 @@ exports.getAll = async (req, res, next) => {
     }
 };
 
-exports.getOneById = async (req, res, next) => {
+exports.getOneByIdTag = async (req, res, next) => {
     try {
         const { id } = req.params;
         const tag = await Tags.findByPk(id)
@@ -35,6 +39,33 @@ exports.createTag = async (req, res, next) => {
         // Sequelize.BaseError, throwError(201, '"A database error has ocurred, try again."')
         res.status(201).json(tag);
         // res.json(tag);
+    } catch (e) {
+        next(e)
+    }
+};
+
+exports.updateTag = async (req, res, next) => {
+    console.log("updateTag")
+    // try {
+    //     const { name, type } = req.body;
+    //     const tags = await Tags.create({ name, type })
+    //         .catch(Sequelize.ValidationError, throwError(201, 'Validation Errors'))
+    //         .catch(Sequelize.BaseError, throwError(500, '"A database error has ocurred, try again."'))
+    //     // Sequelize.BaseError, throwError(201, '"A database error has ocurred, try again."')
+    //     res.status(201).json(tag);
+    //     // res.json(tag);
+    // } catch (e) {
+    //     next(e)
+    // }
+};
+
+exports.deleteTag = async (req, res, next) => {
+    try {
+        const { id } = req.body;
+        const tag = await Tags.destroy({ where: { id } })
+            .catch(Sequelize.ValidationError, throwError(201, 'Validation Errors'))
+            .catch(Sequelize.BaseError, throwError(500, 'A database error has ocurred, try again.'))
+        res.status(200).json(tag);
     } catch (e) {
         next(e)
     }

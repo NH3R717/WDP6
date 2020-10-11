@@ -1,18 +1,22 @@
 // import the express router
 const router = require('express').Router();
+const userCtrl = require('../controllers/users')
+
+// ToDo import controllers
+// ToDo check controller functions
 
 // import middleware
 // *
 
 // All user (users list)
-// <Route exact path="/users" component={UserAdmin} />
-router.get("/users", userCtrl.getAllUser);
+router.get('/users', userCtrl.getAllUser);
 
 // userId
-// <Route exact path="/users/:userId" component={user} />
-router.get('/users/:userId"', userCtrl.getOneById);
-router.put('/users/:userId"', userCtrl.updateUser);
-router.delete('/users/:userId"', userCtrl.deleteUser);
+router.get('/users/:userId', userCtrl.getOneByIdUser);
+// ! below not assigned
+router.put('/users/', userCtrl.createUser);
+router.put('/users/:userId', userCtrl.updateUser);
+router.delete('/users/:userId', userCtrl.deleteUser);
 
 // export the route from this file
 module.exports = router;

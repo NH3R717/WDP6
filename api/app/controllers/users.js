@@ -1,7 +1,10 @@
 const { Users, Sequelize } = require("../models");
 const { throwError, throwIf } = require('../uti/errorHandeling');
 
-exports.getAll = async (req, res, next) => {
+// ToDo
+// – [] fetchUser(userId) √
+
+exports.getAllUser = async (req, res, next) => {
     try {
         const { name } = req.query;
         const users = await Users.findAll({ where: { name } }).catch(
@@ -13,7 +16,8 @@ exports.getAll = async (req, res, next) => {
     }
 };
 
-exports.getOneById = async (req, res, next) => {
+// ! fetchUser(userId)
+exports.getOneByIdUser = async (req, res, next) => {
     try {
         const { id } = req.params;
         const user = await Users.findByPk(id)
@@ -35,6 +39,33 @@ exports.createUser = async (req, res, next) => {
         // Sequelize.BaseError, throwError(201, '"A database error has ocurred, try again."')
         res.status(201).json(user);
         // res.json(user);
+    } catch (e) {
+        next(e)
+    }
+};
+
+exports.updateUser = async (req, res, next) => {
+    console.log("updateUser")
+    // try {
+    //     const { name, type } = req.body;
+    //     const user = await Users.create({ name, type })
+    //         .catch(Sequelize.ValidationError, throwError(201, 'Validation Errors'))
+    //         .catch(Sequelize.BaseError, throwError(500, '"A database error has ocurred, try again."'))
+    //     // Sequelize.BaseError, throwError(201, '"A database error has ocurred, try again."')
+    //     res.status(201).json(user);
+    //     // res.json(user);
+    // } catch (e) {
+    //     next(e)
+    // }
+};
+
+exports.deleteUser = async (req, res, next) => {
+    try {
+        const { id } = req.body;
+        const user = await Users.destroy({ where: { id } })
+            .catch(Sequelize.ValidationError, throwError(201, 'Validation Errors'))
+            .catch(Sequelize.BaseError, throwError(500, 'A database error has ocurred, try again.'))
+        res.status(200).json(user);
     } catch (e) {
         next(e)
     }

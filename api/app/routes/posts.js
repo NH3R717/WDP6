@@ -1,23 +1,21 @@
 // import the express router
 const router = require('express').Router();
+const postCtrl = require('../controllers/posts')
+
+// ToDo import middleware
 
 // import middleware
 // *
 
-// Edit post
-// <Route exact path="/posts/edit/:postId" component={PostForm} />
-router.put("/posts/edit/:postId", postCtrl.updatePost);
+// all post
+//!ttd will follow controllers working (focus on assignment requirements)
+router.get('/posts', postCtrl.getAllPost);
 
-// All post (post feed)
-// <Route exact path="/posts" component={PostAdmin} />
-router.get("/posts", postCtrl.getAllPost);
-
-
-// postId
-// <Route exact path="/posts/:postId" component={Post} />
-router.get('/posts/:postId"', postCtrl.getOneById);
-router.put('/posts/:postId"', postCtrl.updatePost);
-router.delete('/posts/:postId"', postCtrl.deletePost);
+// post by
+router.get('/posts/:postId', postCtrl.getOneByIdPost);
+router.put('/posts/', postCtrl.createPost);
+router.put('/posts/:postId', postCtrl.updatePost);
+router.delete('/posts/:postId', postCtrl.deletePost);
 
 // export the route from this file
 module.exports = router;
