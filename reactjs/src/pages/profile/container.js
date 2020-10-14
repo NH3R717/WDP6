@@ -1,21 +1,21 @@
 import { connect } from 'react-redux';
 import {
-  getAllPosts, addPost
+   addUser, getOneByIdUser, deleteUser
 } from '../../store/users/actions';
 
 function mapStateToProps(state, props) {
   const { match: { params: { id } } } = props;
   const {
-    posts: {
+    users: {
       byId: {
-        [id]: post,
+        [id]: user,
       },
     },
   } = state;
-  return { post };
+  return { user };
 }
 
 const mapDispatchToProps = {
-  getAllPosts, addPost,
+   addUser, getOneByIdUser, deleteUser
 };
 export default connect(mapStateToProps, mapDispatchToProps);
