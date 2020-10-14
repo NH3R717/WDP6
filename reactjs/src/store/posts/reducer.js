@@ -1,4 +1,3 @@
-import API from '../../../../api';
 import {
     SET_POST,
     SET_POSTS,
