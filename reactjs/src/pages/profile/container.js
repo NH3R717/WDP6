@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import {
-   addUser, getOneByIdUser, deleteUser
+   getOneByIdUser
 } from '../../store/users/actions';
 
 function mapStateToProps(state, props) {
@@ -16,6 +16,6 @@ function mapStateToProps(state, props) {
 }
 
 const mapDispatchToProps = {
-   addUser, getOneByIdUser, deleteUser
+  getOneByIdUser
 };
 export default connect(mapStateToProps, mapDispatchToProps);
