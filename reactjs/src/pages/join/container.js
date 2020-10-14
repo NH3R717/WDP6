@@ -1,27 +1,10 @@
 import { connect } from 'react-redux';
-import {
-//   the pertinent functions (getThing, addThing)
-} from 'the store action file';
-// } from '../../store/place/actions';
+import { login } from '../../store/auth/actions';
 
-function mapStateToProps(state, props) {
-
-const mapDispatchToProps = {
-//   the pertinent functions (getThing, addThing)
-};
-
-//     function mapStateToProps(state, props) {
-//   const { match: { params: { id } } } = props;
-//   const {
-//     choices: {
-//       byId: {
-//         [id]: choice,
-//       },
-//     },
-//   } = state;
-//   return { choice };
-// }
-    
-      return { choice };
+function mapStateToProps(state) {
+  const { auth: { loggedIn } } = state;
+  return { loggedIn };
 }
+
+const mapDispatchToProps = { login };
 export default connect(mapStateToProps, mapDispatchToProps);
