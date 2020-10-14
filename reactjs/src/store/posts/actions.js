@@ -33,7 +33,6 @@ export const addPost = (post) => async (dispatch) => {
     dispatch({ type: SET_POST, post: { ...post, ...updatePost } });
   } else {
     const newPost = await API.post("/posts", post);
-    console.log(`New Post! ${{ ...newPost }}`);
     dispatch({ type: SET_POST, post: { ...post, ...newPost } });
     dispatch({
       type: ADD_POST,
