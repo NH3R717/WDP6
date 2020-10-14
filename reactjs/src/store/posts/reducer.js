@@ -1,7 +1,11 @@
+import API from '../../../../api';
 import {
-  SET_POST,
-} from '../actionTypes';
-import { arrayToObject, removeIdFromObject, removeIdFromArray } from '../utils';
+    SET_POST,
+    SET_POSTS,
+    ADD_POST,
+    DELETE_POST,
+} from '../actionsTypes';
+import { shouldLoad } from '../utils';
 
 const startState = {
   postLoadedAt: {},
@@ -9,7 +13,7 @@ const startState = {
   byId: {},
 };
 
-export default function choiceReducer(state = startState, action) {
+export default function postReducer(state = startState, action) {
   const { type, ...payload } = action;
     switch (type) {
     //   ! reducer functions go here
