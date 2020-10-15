@@ -1,27 +1,21 @@
 import { connect } from 'react-redux';
 import {
-//   the pertinent functions (getThing, addThing)
-} from 'the store action file';
-// } from '../../store/place/actions';
+  getAllPosts, addPost, getOneByIdPost, deletePost
+} from '../../store/posts/actions';
 
 function mapStateToProps(state, props) {
+  const { match: { params: { id } } } = props;
+  const {
+    posts: {
+      byId: {
+        [id]: post,
+      },
+    },
+  } = state;
+  return { post };
+}
 
 const mapDispatchToProps = {
-//   the pertinent functions (getThing, addThing)
+  getAllPosts, addPost, getOneByIdPost, deletePost
 };
-
-//     function mapStateToProps(state, props) {
-//   const { match: { params: { id } } } = props;
-//   const {
-//     choices: {
-//       byId: {
-//         [id]: choice,
-//       },
-//     },
-//   } = state;
-//   return { choice };
-// }
-    
-      return { choice };
-}
 export default connect(mapStateToProps, mapDispatchToProps);

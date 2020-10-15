@@ -1,27 +1,21 @@
 import { connect } from 'react-redux';
 import {
-//   the pertinent functions (getThing, addThing)
-} from 'the store action file';
-// } from '../../store/place/actions';
+  getAllTags
+} from '../../store/tags/actions';
 
 function mapStateToProps(state, props) {
+  const { match: { params: { id } } } = props;
+  const {
+    tags: {
+      byId: {
+        [id]: tag,
+      },
+    },
+  } = state;
+  return { tag };
+}
 
 const mapDispatchToProps = {
-//   the pertinent functions (getThing, addThing)
+  getAllTags
 };
-
-//     function mapStateToProps(state, props) {
-//   const { match: { params: { id } } } = props;
-//   const {
-//     choices: {
-//       byId: {
-//         [id]: choice,
-//       },
-//     },
-//   } = state;
-//   return { choice };
-// }
-    
-      return { choice };
-}
 export default connect(mapStateToProps, mapDispatchToProps);
