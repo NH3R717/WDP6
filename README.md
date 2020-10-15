@@ -24,6 +24,10 @@ Here's what I worked on this past week...
 
 **Week 3**:
 
+Two additions to this project are scheduled for week 3.
+A. Implement redux to handle the management of state.
+B. Add JSON web token (JWT) authorization to user login ability.
+
 **Week 4**:
 
 <br>
@@ -34,6 +38,6 @@ Here's what I worked on this past week...
 
 - [x] Repo Created: Complete!
 - [x] Milestone 1: In Progress (API and Test need to be included)
-- [ ] Milestone 2: Error Handling
+- [x] Milestone 2: Error Handling
 - [ ] Milestone 3: status
 - [ ] Milestone 4: status
