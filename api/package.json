@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "jest",
-    "api": "cd api; nodemon server.js",
+    "api": "nodemon server.js",
     "start": "node server.js"
   },
   "keywords": [],
