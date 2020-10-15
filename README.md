@@ -34,6 +34,7 @@ Here's what I worked on this past week...
 
 - [x] Repo Created: Complete!
 - [x] Milestone 1: In Progress (API and Test need to be included)
-- [ ] Milestone 2: Error Handling
-- [ ] Milestone 3: status
+- [x] Milestone 2: Error Handling
+- [ ] Milestone 3.1: Rudux state management
+- [ ] Milestone 3.2: JWT user authorization
 - [ ] Milestone 4: status
