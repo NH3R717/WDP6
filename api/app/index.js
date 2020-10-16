@@ -9,13 +9,13 @@ const authRouter = require("./routes/auth");
 // const bodyParser = require("body-parser");
 
 const morganDebug = require("morgan-debug");
-// const cors = require("cors");
+const cors = require("cors");
 const app = express();
 // takes the place of body-parser
 
 app.use(express.json());
 // app.use(bodyParser.json());
-// app.use(cors());
+app.use(cors());
 app.use(morganDebug("api:request", "dev"));
 
 // routers

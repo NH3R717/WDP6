@@ -1,7 +1,6 @@
 import API from '../../../../api';
 import {
     SET_USER,
-    SET_USERS,
     ADD_USER,
     DELETE_USER,
 } from '../actionsTypes';
