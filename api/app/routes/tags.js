@@ -9,12 +9,12 @@ const tagsCtrl = require('../controllers/tags')
 router.get('/', tagsCtrl.getAllTag);
 
 // tagId
-router.get('/:tagId', tagsCtrl.getOneByIdTag);
+router.get('/:id', tagsCtrl.getOneByIdTag);
 
 router.post('/', tagsCtrl.createTag);
-router.put('/:tagId', tagsCtrl.updateTag);
+router.put('/:id', tagsCtrl.updateTag);
 
-router.delete('/tags/:tagId', tagsCtrl.deleteTag);
+router.delete('/:id', tagsCtrl.deleteTag);
 
 // export the route from this file
 module.exports = router;

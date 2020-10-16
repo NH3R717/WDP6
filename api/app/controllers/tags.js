@@ -6,7 +6,7 @@ const { throwError, throwIf } = require('../util/errorHandeling');
 // – [] removeFromWatched(tagId) // ! Don't know about "watching"
 
 exports.getAllTag = async (req, res, next) => {
-    console.log("® controller tags.js getOneByIdUser ")
+    console.log("® controller tags.js getAllTag ")
     try {
 const tagsAll = await tags.findAll().catch(
             throwError(500, "A database error has ocurred, try again.")
@@ -19,16 +19,17 @@ const tagsAll = await tags.findAll().catch(
 };
 
 exports.getOneByIdTag = async (req, res, next) => {
-    // try {
-    //     const { id } = req.params;
-    //     const tag = await tags.findByPk(id)
-    //         .then(
-    //             throwIf(row => !row, 404, 'Tag not found.'),
-    //             throwError(500, "A database error has ocurred, try again."))
-    //     res.json(tag)
-    // } catch (e) {
-    //     next(e)
-    // }
+    console.log("® controller tags.js getOneByIdTag ")
+    try {
+        const { id } = req.params;
+        const tag1 = await tags.findByPk(id)
+            .then(
+                throwIf(row => !row, 404, 'Tag not found.'),
+                throwError(500, "A database error has ocurred, try again."))
+        res.json(tag1)
+    } catch (e) {
+        next(e)
+    }
 };
 
 // ! console log works
@@ -66,6 +67,7 @@ exports.updateTag = async (req, res, next) => {
 };
 
 exports.deleteTag = async (req, res, next) => {
+    console.log("® controller tags.js deleteTag ")
     try {
         const { id } = req.body;
         const tag = await tags.destroy({ where: { id } })

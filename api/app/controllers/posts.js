@@ -20,7 +20,7 @@ const { throwError, throwIf } = require('../util/errorHandeling');
 // ! fetchUserposts()
 // ! fetchWatching()
 exports.getAllPost = async (req, res, next) => {
-    console.log("getAllPost")
+    console.log("® controller posts.js getAllPost ")
     try {
         const { type } = req.query;
         const post = await posts.findAll({ where: { type } }).catch(
@@ -34,7 +34,7 @@ exports.getAllPost = async (req, res, next) => {
 
 // !
 exports.getOneByIdPost = async (req, res, next) => {
-    console.log("getOneByIdPost")
+    console.log("® controller posts.js getOneByIdPost")
     try {
         const { id } = req.params;
         const posts = await posts.findByPk(id)
@@ -50,7 +50,7 @@ exports.getOneByIdPost = async (req, res, next) => {
 exports.createPost = async (req, res, next) => {
     try {
             const { title, content } = req.body;
-            console.log("createPost ", req.user, title, content)
+            console.log("® controller posts.js createPost ", req.user, title, content)
             const post = await posts.create({ user:req.user, title, content })
                 // .catch(Sequelize.ValidationError, throwError(201, 'Validation Errors'))
                 // .catch(Sequelize.BaseError, throwError(500, '"A database error has ocurred, try again."'))

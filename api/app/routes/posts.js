@@ -14,10 +14,10 @@ const protectedRoute = require('../util/protectedRoute')
 router.get('/', protectedRoute, postCtrl.getAllPost);
 
 // post by
-router.get('/:postId', protectedRoute, postCtrl.getOneByIdPost);
+router.get('/:id', protectedRoute, postCtrl.getOneByIdPost);
 router.post('/', protectedRoute, postCtrl.createPost);
-router.put('/:postId', protectedRoute, postCtrl.updatePost);
-router.delete('/:postId', protectedRoute, postCtrl.deletePost);
+router.put('/:id', protectedRoute, postCtrl.updatePost);
+router.delete('/:id', protectedRoute, postCtrl.deletePost);
 
 // export the route from this file
 module.exports = router;
