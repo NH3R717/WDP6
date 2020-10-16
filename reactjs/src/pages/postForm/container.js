@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import { getOneByIdPost, addPost, deletePost } from '../../store/posts/actions';
 
+console.log('>>>', addPost)
+
 function mapStateToProps(state, props) {
   // get the id from the route params
   const { match: { params: { id } } } = props;

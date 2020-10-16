@@ -1,4 +1,4 @@
-const { Posts, Sequelize } = require("../models");
+const { posts, Sequelize } = require("../models");
 const { throwError, throwIf } = require('../util/errorHandeling');
 
 // ! focus on controllers that coincide with the assignment
@@ -16,14 +16,14 @@ const { throwError, throwIf } = require('../util/errorHandeling');
 
 
 // ! fetchPost(postId)
-// ! fetchPosts( { type } || { tag } )
-// ! fetchUserPosts()
+// ! fetchposts( { type } || { tag } )
+// ! fetchUserposts()
 // ! fetchWatching()
 exports.getAllPost = async (req, res, next) => {
     console.log("getAllPost")
     try {
         const { type } = req.query;
-        const post = await Posts.findAll({ where: { type } }).catch(
+        const post = await posts.findAll({ where: { type } }).catch(
             throwError(500, "A database error has ocurred, try again.")
         )
         res.json(post);
@@ -37,7 +37,7 @@ exports.getOneByIdPost = async (req, res, next) => {
     console.log("getOneByIdPost")
     try {
         const { id } = req.params;
-        const posts = await Posts.findByPk(id)
+        const posts = await posts.findByPk(id)
             .then(
                 throwIf(row => !row, 404, 'Post not found.'),
                 throwError(500, "A database error has ocurred, try again."))
@@ -48,18 +48,19 @@ exports.getOneByIdPost = async (req, res, next) => {
 };
 
 exports.createPost = async (req, res, next) => {
-    console.log("createPost")
-    // try {
-    //         const { name, type } = req.body;
-    //         const post = await Posts.create({ name, type })
-    //             .catch(Sequelize.ValidationError, throwError(201, 'Validation Errors'))
-    //             .catch(Sequelize.BaseError, throwError(500, '"A database error has ocurred, try again."'))
-    //         // Sequelize.BaseError, throwError(201, '"A database error has ocurred, try again."')
-    //         res.status(201).json(post);
-    //         // res.json(post);
-    //     } catch (e) {
-    //         next(e)
-    //     }
+    try {
+            const { title, content } = req.body;
+            console.log("createPost ", req.user, title, content)
+            const post = await posts.create({ user:req.user, title, content })
+                // .catch(Sequelize.ValidationError, throwError(201, 'Validation Errors'))
+                // .catch(Sequelize.BaseError, throwError(500, '"A database error has ocurred, try again."'))
+            // Sequelize.BaseError, throwError(201, '"A database error has ocurred, try again."')
+            console.log("new post ", post)
+            res.status(201).json(post);
+            // res.json(post);
+        } catch (e) {
+            next(e)
+        }
 };
 
 // ! addVote( { postId, direction } )
@@ -68,7 +69,7 @@ exports.updatePost = async (req, res, next) => {
     console.log("updatePost")
     // try {
     //     const { name, type } = req.body;
-    //     const post = await Posts.create({ name, type })
+    //     const post = await posts.create({ name, type })
     //         .catch(Sequelize.ValidationError, throwError(201, 'Validation Errors'))
     //         .catch(Sequelize.BaseError, throwError(500, '"A database error has ocurred, try again."'))
     //     // Sequelize.BaseError, throwError(201, '"A database error has ocurred, try again."')
@@ -84,7 +85,7 @@ exports.deletePost = async (req, res, next) => {
     console.log(deletePost)
     try {
         const { id } = req.body;
-        const post = await Posts.destroy({ where: { id } })
+        const post = await posts.destroy({ where: { id } })
             .catch(Sequelize.ValidationError, throwError(201, 'Validation Errors'))
             .catch(Sequelize.BaseError, throwError(500, 'A database error has ocurred, try again.'))
         res.status(200).json(post);

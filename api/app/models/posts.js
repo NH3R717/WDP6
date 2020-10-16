@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     // user: {
-    //   type: DataTypes.UUID,
+    //   type: DataTypes.STRING,
     //   unique: true,
     // },
     title: DataTypes.STRING,

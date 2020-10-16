@@ -12,7 +12,7 @@ export default function container(Component) {
       this.setState({ post });
     }
 
-    savePost = async (post) => {
+    addPost = async (post) => {
       if (post.id) {
         return API.put(`/posts/${post.id}`, post);
       }
@@ -32,7 +32,7 @@ export default function container(Component) {
           {...this.props}
           post={post}
           getPost={this.getPost}
-          savePost={this.savePost}
+          addPost={this.addPost}
           deletePost={this.deletePost}
         />
       );

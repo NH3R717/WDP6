@@ -6,14 +6,14 @@ const tagsCtrl = require('../controllers/tags')
 // *
 
 // All tag (tags list)
-router.get('/tags', tagsCtrl.getAllTag);
+router.get('/', tagsCtrl.getAllTag);
 
 // tagId
-router.get('/tags/:tagId', tagsCtrl.getOneByIdTag);
-// ! below not assigned
-router.put('/tags/', tagsCtrl.createTag);
-router.put('/tags/:tagId', tagsCtrl.updateTag);
-// ! below not assigned
+router.get('/:tagId', tagsCtrl.getOneByIdTag);
+
+router.post('/', tagsCtrl.createTag);
+router.put('/:tagId', tagsCtrl.updateTag);
+
 router.delete('/tags/:tagId', tagsCtrl.deleteTag);
 
 // export the route from this file

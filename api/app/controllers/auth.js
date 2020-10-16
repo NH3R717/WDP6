@@ -1,6 +1,9 @@
 const jwt = require("jsonwebtoken");
+const error = require("debug")("api:error");
 const bcrypt = require("bcrypt");
 const { users } = require("../models");
+
+const salt = 10;
 
 exports.signUp = async (req, res) => {
     console.log("api/controllers/auth.js – signup()");
