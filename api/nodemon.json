@@ -1,6 +1,7 @@
 {
   "env": {
-    "DEBUG": "api:*"
+    "DEBUG": "api:*",
+    "SECRET": "763ddb26-2ba5-4d66-acad-630f712d030e"
   },
   "notes (do not git commit)": {}
 }
