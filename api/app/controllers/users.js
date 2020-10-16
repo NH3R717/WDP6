@@ -27,11 +27,11 @@ exports.getOneByIdUser = async (req, res, next) => {
     console.log("® controller users.js getOneByIdUser ")
     try {
         const { id } = req.params;
-        const user = await users.findByPk(id)
+        const userOne = await users.findByPk(id)
             .then(
                 throwIf(row => !row, 404, 'User not found.'),
                 throwError(500, "A database error has ocurred, try again."))
-        res.json(user)
+        res.json(userOne)
     } catch (e) {
         next(e)
     }
@@ -41,9 +41,9 @@ exports.getOneByIdUser = async (req, res, next) => {
 exports.createUser = async (req, res, next) => {
     console.log("® controller users.js createUser ")
     try {
-        const { name } = req.body;
-        console.log('® controller users.js', name);
-        const user = await users.create({ name })
+        const { username } = req.body;
+        console.log('® controller users.js', username);
+        const user = await users.create({ username })
             .catch(Sequelize.ValidationError, throwError(201, 'Validation Errors'))
             .catch(Sequelize.BaseError, throwError(500, '"A database error has ocurred, try again."'))
         // Sequelize.BaseError, throwError(201, '"A database error has ocurred, try again."')

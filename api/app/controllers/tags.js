@@ -22,11 +22,11 @@ exports.getOneByIdTag = async (req, res, next) => {
     console.log("® controller tags.js getOneByIdTag ")
     try {
         const { id } = req.params;
-        const tag1 = await tags.findByPk(id)
+        const tagOne = await tags.findByPk(id)
             .then(
                 throwIf(row => !row, 404, 'Tag not found.'),
                 throwError(500, "A database error has ocurred, try again."))
-        res.json(tag1)
+        res.json(tagOne)
     } catch (e) {
         next(e)
     }

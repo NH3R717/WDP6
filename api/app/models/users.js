@@ -49,7 +49,7 @@ module.exports = (sequelize, DataTypes) => {
   Users.associate = function (models) {
     Users.hasOne(models.states, { foreignKey: 'id' });
     // Users.hasOne(models.posts, { foreignKey: 'username' })
-    Users.hasMany(models.posts, { foreignKey: 'id' });
+    // Users.hasMany(models.posts, { foreignKey: 'id' });
     Users.hasMany(models.tags, { foreignKey: 'id' });
     Users.hasMany(models.comments, { foreignKey: 'id' });
   };

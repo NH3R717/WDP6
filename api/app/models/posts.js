@@ -40,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
     modelName: 'posts',
   });
   Posts.associate = function (models) {
-    Posts.belongsTo(models.users, { foreignKey: 'postsId' });
+    // Posts.belongsTo(models.users, { foreignKey: 'postsId' });
     // Posts.belongsTo(models.users, { foreignKey: 'username' });
     Posts.hasMany(models.tags, { foreignKey: 'id' });
     Posts.hasMany(models.comments, { foreignKey: 'id' });
