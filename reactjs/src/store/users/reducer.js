@@ -15,18 +15,18 @@ const startState = {
 export default function userReducer(state = startState, action) {
   const { type, ...payload } = action;
     switch (type) {
-    case SET_USERS: {
-      const { allUsers } = payload;
-      return {
-        ...state,
-        byId: {
-          ...state.byId,
-          ...arrayToObject(allUsers),
-        },
-        allUsers: allUsers.map(user => user.id),
-        userLoadedAt: Date.now(),
-      };
-    }
+    // case SET_USERS: {
+    //   const { allUsers } = payload;
+    //   return {
+    //     ...state,
+    //     byId: {
+    //       ...state.byId,
+    //       ...arrayToObject(allUsers),
+    //     },
+    //     allUsers: allUsers.map(user => user.id),
+    //     userLoadedAt: Date.now(),
+    //   };
+    // }
     case SET_USER: {
       const { user } = payload;
       return {

@@ -2,21 +2,22 @@
 const router = require('express').Router();
 const userCtrl = require('../controllers/users')
 
-// ToDo import controllers
 // ToDo check controller functions
 
 // import middleware
 // *
 
 // All user (users list)
-router.get('/users', userCtrl.getAllUser);
+router.get('/', userCtrl.getAllUsers);
 
 // userId
-router.get('/users/:userId', userCtrl.getOneByIdUser);
+router.get('/:id', userCtrl.getOneByIdUser);
 // ! below not assigned
-router.put('/users/', userCtrl.createUser);
-router.put('/users/:userId', userCtrl.updateUser);
-router.delete('/users/:userId', userCtrl.deleteUser);
+
+// ! problem with Bearer Token
+router.post('/', userCtrl.createUser);
+router.put('/:id', userCtrl.updateUser);
+router.delete('/:id', userCtrl.deleteUser);
 
 // export the route from this file
 module.exports = router;

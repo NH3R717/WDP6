@@ -3,10 +3,10 @@ import { combineReducers, createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 // reducer import
-import auth from './auth';
-import posts from './posts';
-import tags from './tags';
-import users from './users';
+import auth from './auth/reducer';
+import posts from './posts/reducer';
+import tags from './tags/reducer';
+import users from './users/reducer';
 
 const rootReducer = combineReducers({
   auth,

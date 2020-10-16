@@ -3,6 +3,11 @@ import styles from './app.module.css';
 
 import React from 'react';
 
+// Give app access to the store
+import { Provider } from 'react-redux';
+// Import the store to use
+import {store} from './store';
+
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Header from './components/header';
@@ -21,6 +26,7 @@ import Users from './pages/users';
 
 function App() {
   return (
+    <Provider store={store}>
     <section className={styles.backgroundStars}>
       <section className={styles.container}>
         <Router>
@@ -42,7 +48,8 @@ function App() {
           </main>
         </Router>
       </section>
-    </section>
+      </section>
+      </Provider>
   );
 }
 

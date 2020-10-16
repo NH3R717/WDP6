@@ -3,6 +3,7 @@ import styles from './join.module.css';
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import JoinContainer from "./container"
 
 import ProfilePicture from '@marcioferlan/react-profile-picture';
 import { Button, Control, Field, Image, Input, Label } from 'bloomer';
@@ -10,7 +11,9 @@ import { Button, Control, Field, Image, Input, Label } from 'bloomer';
 class Join extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      avatar:"", city:"", password:"", state:"", username:""
+    };
     this.profilePictureRef = React.createRef();
   }
 
@@ -30,7 +33,6 @@ class Join extends Component {
     e.preventDefault();
     const { registerUser } = this.props;
     const { avatar, city, password, state, username } = this.state;
-
     const PP = this.profilePictureRef.current;
     registerUser({
       avatar: PP ? PP.getImageAsDataUrl() : avatar,
@@ -139,4 +141,4 @@ Join.defaultProps = {
   registerUser: () => {},
 };
 
-export default Join;
+export default JoinContainer(Join);

@@ -1,6 +1,6 @@
 import {
   SET_LOGGED_IN,
-} from '../actionTypes';
+} from '../actionsTypes';
 
 const startState = {
   loggedIn: !!localStorage.getItem('token'),
