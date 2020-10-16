@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     // user: {
-    //   type: DataTypes.UUID,
+    //   type: DataTypes.STRING,
     //   unique: true,
     // },
     title: DataTypes.STRING,
@@ -40,10 +40,10 @@ module.exports = (sequelize, DataTypes) => {
     modelName: 'posts',
   });
   Posts.associate = function (models) {
-    Posts.belongsTo(models.users, { foreignKey: 'postsId' });
+    // Posts.belongsTo(models.users, { foreignKey: 'postsId' });
     // Posts.belongsTo(models.users, { foreignKey: 'username' });
-    Posts.hasMany(models.tags, { foreignKey: 'tagsId' });
-    Posts.hasMany(models.comments, { foreignKey: 'commentsId' });
+    Posts.hasMany(models.tags, { foreignKey: 'id' });
+    Posts.hasMany(models.comments, { foreignKey: 'id' });
     };
   return Posts;
 };

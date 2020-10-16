@@ -34,7 +34,7 @@ module.exports = (sequelize, DataTypes) => {
   });
   Tags.associate = function (models) {
     Tags.belongsToMany(models.users, { through: 'tagsId' });
-    Tags.belongsToMany(models.posts, { through: 'postId' });
+    Tags.belongsToMany(models.posts, { through: 'tagsId' });
   };
   return Tags;
 };

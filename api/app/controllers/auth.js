@@ -1,19 +1,25 @@
 const jwt = require("jsonwebtoken");
+const error = require("debug")("api:error");
 const bcrypt = require("bcrypt");
 const { users } = require("../models");
+
+const salt = 10;
 
 exports.signUp = async (req, res) => {
     console.log("api/controllers/auth.js – signup()");
     // needs to be let
-    let { username, password } = req.body;
+    let { username, password, avatar, city, stateId } = req.body;
     try {
         console.log("password before hash – ", password);
         password = await bcrypt.hash(password, salt);
         // username = username.toLowerCase();
         console.log("password after hash – ", password);
         const user = await users.create({
-            username,
-            password,
+             username, 
+             password, 
+             avatar, 
+             city, 
+             state 
         });
         console.log("api/controllers/auth.js – signup() – users ", user);
         const token = jwt.sign({ id: user.id }, process.env.SECRET);

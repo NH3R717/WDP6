@@ -1,11 +1,29 @@
-// creating a middleware
-const protectedRoute = (req, res, next) => {
+const jwt = require('jsonwebtoken');
+const { users } = require('../models');
 
-    const loggedIn = "false";
+module.exports = (req, res, next) => {
+    console.log('Auth protection...')
+  const { authorization } = req.headers;
+  if (!authorization) {
+    return res.status(401).send({ error: 'You must be logged in.' });
+  }
 
-    if (!loggedIn) return res.redirect("/");
+  const token = authorization.replace('Bearer ', '');
+  // args(token,secret,callback)
+  jwt.verify(token, process.env.SECRET, async (err, payload) => {
+    if (err) {
+      return res.status(401).send({ error: 'You must be logged in.' });
+    }
 
-    return next();
+    const { id } = payload;
+    console.log('trying to verify', id);
+    const user = await users.findByPk(id);
+
+    if (!user) {
+      return res.status(401).send({ error: 'Account deactivated.' });
+    }
+
+    req.user = user;
+    next();
+  });
 };
-
-module.exports = protectedRoute;

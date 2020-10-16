@@ -65,10 +65,11 @@ class CreatePost extends Component {
     const {
       history,
       post: { id },
-      savePost,
+      addPost,
     } = this.props;
-    savePost({ content, id, tags, title });
-    history.push('/posts');
+    console.log("on submit ")
+    addPost({ content, id, tags, title });
+    // history.push('/posts');
   };
 
   render() {
@@ -144,7 +145,7 @@ CreatePost.propTypes = {
     tags: PropTypes.arrayOf(PropTypes.object),
     title: PropTypes.string,
   }),
-  savePost: PropTypes.func,
+  addPost: PropTypes.func,
   suggestions: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
@@ -156,7 +157,7 @@ CreatePost.propTypes = {
 CreatePost.defaultProps = {
   fetchPost: () => {},
   post: postData[0],
-  savePost: () => {},
+  addPost: () => {},
   suggestions: tagData,
 };
 
