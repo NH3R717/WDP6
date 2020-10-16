@@ -1,5 +1,5 @@
 const { Tags, Sequelize } = require("../models");
-const { throwError, throwIf } = require('../uti/errorHandeling');
+const { throwError, throwIf } = require('../util/errorHandeling');
 
 // ToDo
 // – [] addToWatched(tagId) // ! Don't know about "watching"

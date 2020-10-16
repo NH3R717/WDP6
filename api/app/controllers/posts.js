@@ -1,5 +1,5 @@
 const { Posts, Sequelize } = require("../models");
-const { throwError, throwIf } = require('../uti/errorHandeling');
+const { throwError, throwIf } = require('../util/errorHandeling');
 
 // ! focus on controllers that coincide with the assignment
 
