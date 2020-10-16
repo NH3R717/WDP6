@@ -1,6 +1,5 @@
 // tcp data port data pipeline setup
 
-
 // setting up logger
 const log = require('debug')('api:logging');
 

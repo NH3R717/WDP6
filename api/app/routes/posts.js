@@ -2,6 +2,8 @@
 const router = require('express').Router();
 const postCtrl = require('../controllers/posts')
 
+const protectedRoute = require('../util/protectedRoute')
+
 // ToDo import middleware
 
 // import middleware
@@ -9,13 +11,13 @@ const postCtrl = require('../controllers/posts')
 
 // all post
 //!ttd will follow controllers working (focus on assignment requirements)
-router.get('/posts', postCtrl.getAllPost);
+router.get('/', protectedRoute, postCtrl.getAllPost);
 
 // post by
-router.get('/posts/:postId', postCtrl.getOneByIdPost);
-router.put('/posts/', postCtrl.createPost);
-router.put('/posts/:postId', postCtrl.updatePost);
-router.delete('/posts/:postId', postCtrl.deletePost);
+router.get('/:id', protectedRoute, postCtrl.getOneByIdPost);
+router.post('/', protectedRoute, postCtrl.createPost);
+router.put('/:id', protectedRoute, postCtrl.updatePost);
+router.delete('/:id', protectedRoute, postCtrl.deletePost);
 
 // export the route from this file
 module.exports = router;

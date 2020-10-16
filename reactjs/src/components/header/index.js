@@ -105,7 +105,7 @@ Header.propTypes = {
   }),
 };
 Header.defaultProps = {
-  loggedIn: true,
+  loggedIn: false,
   logout: () => {},
   user: {
     avatar: 'https://i.pravatar.cc/100',
