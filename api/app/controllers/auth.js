@@ -8,7 +8,7 @@ const salt = 10;
 exports.signUp = async (req, res) => {
     console.log("api/controllers/auth.js – signup()");
     // needs to be let
-    let { username, password, avatar, city, stateId } = req.body;
+    let { username, password, avatar, city } = req.body;
     try {
         console.log("password before hash – ", password);
         password = await bcrypt.hash(password, salt);
@@ -18,8 +18,7 @@ exports.signUp = async (req, res) => {
              username, 
              password, 
              avatar, 
-             city, 
-             state 
+             city
         });
         console.log("api/controllers/auth.js – signup() – users ", user);
         const token = jwt.sign({ id: user.id }, process.env.SECRET);

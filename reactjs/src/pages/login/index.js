@@ -36,7 +36,7 @@ class Login extends Component {
 
   render() {
     const { password, username } = this.state;
-
+// if (loggedIn) return <Redirect to="/admin/quizzes" />;s
     return (
       <form onSubmit={this.onSubmit} className={styles.form}>
         <h1 className={styles.heading}>Login</h1>
