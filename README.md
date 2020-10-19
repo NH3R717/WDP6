@@ -39,6 +39,6 @@ B. Add JSON web token (JWT) authorization to user login ability.
 - [x] Repo Created: Complete!
 - [x] Milestone 1: In Progress (API and Test need to be included)
 - [x] Milestone 2: Error Handling
-- [ ] Milestone 3.1: Rudux state management
-- [ ] Milestone 3.2: JWT user authorization
+- [x] Milestone 3.1: Rudux state management
+- [x] Milestone 3.2: JWT user authorization
 - [ ] Milestone 4: status
