@@ -8,11 +8,11 @@ router.get('/', async (req, res) => {
   res.json({test:true})
 });
 
-// router.post('/signup', authCtrl.signUp);
-router.post('/signup', async (req, res) => {
-  console.log("testing api...")
-  res.json({test:true})
-});
+router.post('/signup', authCtrl.signUp);
+// router.post('/signup', async (req, res) => {
+//   console.log("testing api...")
+//   res.json({test:true})
+// });
 
 router.post('/login', authCtrl.login);
 
