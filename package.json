@@ -25,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/ePortfolios/wd6-2010-NH3R717/issues"
   },
-  "homepage": "https://github.com/ePortfolios/wd6-2010-NH3R717#readme"
+  "homepage": "https://github.com/ePortfolios/wd6-2010-NH3R717#readme",
+  "devDependencies": {
+    "concurrently": "^5.3.0"
+  }
 }
