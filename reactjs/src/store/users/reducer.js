@@ -1,10 +1,11 @@
 import {
     SET_USER,
-    SET_USERS,
+    // SET_USERS,
     ADD_USER,
     DELETE_USER,
 } from '../actionsTypes';
-import { arrayToObject, removeIdFromObject, removeIdFromArray } from '../utils';
+import { removeIdFromObject, removeIdFromArray } from '../utils';
+// import { arrayToObject, removeIdFromObject, removeIdFromArray } from '../utils';
 
 const startState = {
   userLoadedAt: {},

@@ -69,7 +69,7 @@ class CreatePost extends Component {
     } = this.props;
     console.log("on submit ")
     addPost({ content, id, tags, title });
-    // history.push('/posts');
+    history.push('/posts');
   };
 
   render() {

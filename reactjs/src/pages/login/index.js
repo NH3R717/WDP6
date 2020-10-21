@@ -1,6 +1,7 @@
 import styles from './login.module.css';
 
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import { Button, Control, Field, Input, Label } from 'bloomer';
@@ -35,8 +36,9 @@ class Login extends Component {
   };
 
   render() {
-    const { password, username } = this.state;
-// if (loggedIn) return <Redirect to="/admin/quizzes" />;s
+    const { password, username, loggedIn, } = this.state;
+    if (loggedIn) return <Redirect to="/" />;
+
     return (
       <form onSubmit={this.onSubmit} className={styles.form}>
         <h1 className={styles.heading}>Login</h1>
