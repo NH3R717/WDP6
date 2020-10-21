@@ -5,7 +5,7 @@ describe("user endpoints", () => {
 
     it("update a tag to a user's watched [addToWatched(tagId)]", async () => {
         const res = await request(app)
-            .post('/api/user')
+            .post('/users/')
             .send({
                 id: "26d5689d-b15b-4a94-a699-44b3e0fdc401",
                 tags: [{
@@ -20,7 +20,7 @@ describe("user endpoints", () => {
 
     it("update a tag to a user's watched [fetchWatching()]", async () => {
         const res = await request(app)
-            .get('/api/users')
+            .get('/users/')
             .send({
                 id: "26d5689d-b15b-4a94-a699-44b3e0fdc401",
                 tags: [{
@@ -34,7 +34,7 @@ describe("user endpoints", () => {
 
     it("update a tag to a user's watched [removeFromWatched(tagId)]", async () => {
         const res = await request(app)
-            .post('/api/users')
+            .post('/users/')
             .send({
                 id: "26d5689d-b15b-4a94-a699-44b3e0fdc401",
                 tags: [{
@@ -49,11 +49,11 @@ describe("user endpoints", () => {
 
     it("get a user [fetchUser(userId)]", async () => {
         const res = await request(app)
-            .get('/api/users')
+            .get('/users/')
             .send({
                 id: "26d5689d-b15b-4a94-a699-44b3e0fdc401",
             })
-        expect(res.body).toHaveProperty("userId");
+        expect(res.body).toHaveProperty("id");
         expect(res.statusCode).toEqual(201)
     });
 });
