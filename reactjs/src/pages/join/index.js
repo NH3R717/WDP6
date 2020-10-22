@@ -53,7 +53,7 @@ class Join extends Component {
       state,
       username,
     } = this.state;
-    const { loggedIn, } = this.props;
+    const { loggedIn } = this.props;
     if (loggedIn) return <Redirect to="/" />;
 
     return (
