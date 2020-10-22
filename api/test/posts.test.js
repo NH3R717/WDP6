@@ -49,15 +49,15 @@ describe("post endpoints", () => {
     //     expect(res.statusCode).toEqual(201)
     // });
 
-    // it("get a post [fetchPost(postId)]", async () => {
-    //     const res = await request(app)
-    //         .get('/posts')
-    //         .send({
-    //             id: "e9b9ab71-a04d-41d6-b0fd-14a8b9527199"
-    //         })
-    //     expect(res.body).toHaveProperty("id");
-    //     expect(res.statusCode).toEqual(201)
-    // });
+    it("get a post [fetchPost(postId)]", async () => {
+        const res = await request(app)
+            .get('/posts/')
+            .send({
+                id: "a91a4d81-469b-46eb-8f0f-1b12bcbbf4cb"
+            })
+        // expect(res.body).toHaveProperty("id");
+        // expect(res.statusCode).toEqual(201)
+    });
 
     // it("get a post by tag [fetchPosts(tag)]", async () => {
     //     const res = await request(app)
