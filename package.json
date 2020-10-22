@@ -28,5 +28,8 @@
   "homepage": "https://github.com/ePortfolios/wd6-2010-NH3R717#readme",
   "devDependencies": {
     "concurrently": "^5.3.0"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.2"
   }
 }
