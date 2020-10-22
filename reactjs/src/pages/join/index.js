@@ -2,6 +2,7 @@ import '@marcioferlan/react-profile-picture/build/ProfilePicture.css';
 import styles from './join.module.css';
 
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import JoinContainer from "./container"
 
@@ -52,6 +53,8 @@ class Join extends Component {
       state,
       username,
     } = this.state;
+    const { loggedIn, } = this.props;
+    if (loggedIn) return <Redirect to="/" />;
 
     return (
       <form onSubmit={this.onSubmit} className={styles.form}>

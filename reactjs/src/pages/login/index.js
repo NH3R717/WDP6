@@ -3,6 +3,7 @@ import styles from './login.module.css';
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import LoginContainer from "./container"
 
 import { Button, Control, Field, Input, Label } from 'bloomer';
 
@@ -36,7 +37,7 @@ class Login extends Component {
   };
 
   render() {
-    const { password, username, loggedIn, } = this.state;
+    const { password, username, loggedIn, } = this.props;
     if (loggedIn) return <Redirect to="/" />;
 
     return (
@@ -81,4 +82,4 @@ Login.defaultProps = {
   loginUser: () => {},
 };
 
-export default Login;
+export default LoginContainer(Login);
