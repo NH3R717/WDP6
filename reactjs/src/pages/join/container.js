@@ -6,5 +6,5 @@ function mapStateToProps(state) {
   return { loggedIn };
 }
 
-const mapDispatchToProps = { registerUser  };
+const mapDispatchToProps = { registerUser };
 export default connect(mapStateToProps, mapDispatchToProps);

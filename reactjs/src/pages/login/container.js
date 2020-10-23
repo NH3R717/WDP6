@@ -3,6 +3,7 @@ import { loginUser } from '../../store/auth/actions';
 
 function mapStateToProps(state) {
   const { auth: { loggedIn } } = state;
+  console.log("in container ", loggedIn)
   return { loggedIn };
 }
 

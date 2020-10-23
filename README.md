@@ -22,15 +22,11 @@ Here's what I worked on this past week...
 
 **Week 2**: Week 2 focuses on error handling through sequelize, node.js and CircleCI. From error handling event logging and debugging techniques are also practiced.
 
-**Week 3**:
-
-Two additions to this project are scheduled for week 3.
+**Week 3**: Two additions to this project are scheduled for week 3.
 A. Implement redux to handle the management of state.
 B. Add JSON web token (JWT) authorization to user login ability.
 
-**Week 4**:
-
-<br>
+**Week 4**: In this week the project is deployed to Heroku on both a stage and production server. The stage server is used as a live instance to test in that situation while the the production server is intended to end user use.
 
 ---
 
@@ -41,4 +37,6 @@ B. Add JSON web token (JWT) authorization to user login ability.
 - [x] Milestone 2: Error Handling
 - [x] Milestone 3.1: Rudux state management
 - [x] Milestone 3.2: JWT user authorization
-- [ ] Milestone 4: status
+- [x] Milestone 4.1: Review all previous assignment work for improvements
+- [x] Milestone 4.2 Deploy stage and production instances hosted on Heroku
+- [x] Milestone 4.3 Final Exam
