@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "jest": "cross-env NODE_ENV=test jest --testTimeout=10000",
     "test": "cross-env NODE_ENV=circleci jest --testTimeout=10000",
     "pretest": "cross-env NODE_ENV=circleci npm run migrate",
     "dev": "nodemon server.js",
