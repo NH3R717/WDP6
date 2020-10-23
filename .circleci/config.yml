@@ -1,4 +1,4 @@
-`version: 2
+version: 2
 jobs:
   build:
     docker:
@@ -27,4 +27,4 @@ jobs:
           name: Tests
           command: |
             cd api;
-            npm test`
+            npm test
