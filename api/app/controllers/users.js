@@ -1,8 +1,22 @@
 const { users, Sequelize } = require("../models");
 const { throwError, throwIf } = require('../util/errorHandeling');
+const AWS = require("aws-sdk")
+const uuid = require("uuid").v4
 
 // ToDo
 // – [] fetchUser(userId) √
+
+const AWS_ACCESS_KEY_ID = "AKIAJM4THZBJ3CVZOCWQ";
+const AWS_SECRET_KEY = "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";
+const REGION = "Asia Pacific (Tokyo)";
+const BUCKET_NAME = "dfe18c56af18";
+
+const s3 = new AWS.S3({
+    signatureCache: "v4",
+    accessKeyId: AWS_ACCESS_KEY_ID,
+    securityAccessKey: AWS_SECRET_KEY,
+    region: REGION,
+})
 
 // ! route Ok
 // ! getAllUsers Ok
@@ -59,19 +73,55 @@ exports.createUser = async (req, res, next) => {
 // ! not sure about id
 exports.updateUser = async (req, res, next) => {
     console.log("® controller users.js updateUser ")
-    // try {
-    //     const { name, type } = req.body;
-    //     const user = await users.create({ name, type })
-    //         .catch(Sequelize.ValidationError, throwError(201, 'Validation Errors'))
-    //         .catch(Sequelize.BaseError, throwError(500, '"A database error has ocurred, try again."'))
-    //     // Sequelize.BaseError, throwError(201, '"A database error has ocurred, try again."')
-    //     res.status(201).json(user);
-    //     // res.json(user);
-    // } catch (e) {
-    //     next(e)
-    // }
-};
+    const id = req.userId;
+    const { avatar, username, city, state } = req.body;
 
+    const base64Data = newBuffer.form(
+        avatar.replace(/^data:image\/\w+;base64,/),
+        "base64"
+    );
+
+    const type = avatar.split(";")[0].split("/")[1];
+    const photoId = uuid();
+
+    const params = {
+        Bucket: BUCKET_NAME,
+        Key: `${photoId}-avatar.${type}`,
+        Body: base64Data,
+        ACL: "public-read",
+        ContentEncoding: "base64",
+        ContentType: `image/${type}`,
+    };
+
+    try {
+        const { Location } = await s3.upload(params).promise();
+        
+        const city_id = (
+            await Cities.findByPk({ where: { name: city } }).then(throwIf((row) => !row, 404, "City not found"))
+        ).id;
+        const [, [user]] = await users.update(
+            {
+                username,
+                avatar: Location,
+                cityId,
+                stateId,
+            },
+            {
+                where: { id },
+                returning: true,
+            }
+        )
+            .catch(Sequelize.ValidationError, throwError(406, "There's an input problem"))
+            .catch(
+                Sequelize.BaseError,
+                throwError(500, "It's a db error!")
+        );
+        res.status(202).json(user);
+    }
+    catch (e) {
+        next(e);
+    }
+}
 // ! console log works (but not with id)
 // ! not sure about id
 // ! 404 
