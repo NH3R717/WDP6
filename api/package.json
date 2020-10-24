@@ -4,8 +4,12 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "jest",
-    "api": "nodemon server.js",
+    "jest": "cross-env NODE_ENV=test jest --testTimeout=10000",
+    "test": "cross-env NODE_ENV=circleci jest --testTimeout=10000",
+    "pretest": "cross-env NODE_ENV=circleci npm run migrate",
+    "dev": "nodemon server.js",
+    "migrate": "npx sequelize-cli db:migrate",
+    "migrate:reset": "npx sequelize-cli db:migrate:undo:all && npm run migrate",
     "start": "node server.js"
   },
   "keywords": [],
@@ -24,18 +28,21 @@
     "cors": "^2.8.5",
     "debug": "^4.2.0",
     "express": "^4.17.1",
-    "fs": "0.0.1-security",
-    "jest": "^26.4.2",
+    "express-session": "^1.17.1",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
-    "morgan-debug": "^2.0.0",
-    "pg": "^8.3.3",
     "sequelize": "^6.3.5",
     "sequelize-cli": "^6.2.0",
-    "supertest": "^5.0.0",
-    "uuid": "^8.3.0"
+    "session-file-store": "^1.4.0",
+    "uuid": "^8.3.1",
+    "morgan-debug": "^2.0.0",
+    "pg": "^8.3.3",
+    "aws-sdk": "^2.774.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "cross-env": "^7.0.2",
+    "jest": "^26.4.2",
+    "supertest": "^5.0.0"
   }
 }
