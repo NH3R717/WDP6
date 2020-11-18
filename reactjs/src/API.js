@@ -11,7 +11,6 @@ API.interceptors.response.use(
   },
 );
 
-
 // for each api request going out
 API.interceptors.request.use(async (config) => {
   // pull the token out of local storage
