@@ -4,7 +4,7 @@
 
 ### Tommy Umholtz / Student ID: 0004654267
 
-My name is Tommy. This project is the sixths portfolio class project that is part Full Sail University's Online Web Design and Development degree program.
+This project is the sixths portfolio class project that is part Full Sail University's Online Web Design and Development degree program.
 
 ![Degree Program](https://img.shields.io/badge/degree-web%20design%20%26%20development-blue.svg)&nbsp;
 
